@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import Project from './Project';
 import Resume from './Resume';
 import Tab from './tab';
+import AboutMe from './AboutMe';
 
 const projects = [
   {
@@ -10,44 +12,51 @@ const projects = [
     link: 'https://assign6-pvmw.vercel.app/',
   },
   {
-    title: 'Project 2',
-    description: 'Description for Project 2',
+    title: 'Ticket Manager App',
+    description: 'A ticket management app that uses python and django databse for user authentication and data management.',
     link: 'https://example.com/project2',
   },
   {
-    title: 'Project 3',
-    description: 'Description for Project 3',
+    title: 'Positive messaging board app',
+    description: 'a simple web page that utilizes python and flask to give users an opportunity to post inspirational messages and share them with their friends.',
     link: 'https://example.com/project3',
-  }
+  },
   // Add more projects as needed
 ];
 
 const Portfolio = () => {
-  const [activeTab, setActiveTab] = useState('Projects');
-
-  const handleTabClick = (tabLabel) => {
-    setActiveTab(tabLabel);
-  };
-
   return (
-    <div className="portfolio">
-      <div className="tabs">
-        <Tab label="Projects" onClick={() => handleTabClick('Projects')} />&nbsp;&nbsp;
-        <Tab label="Resume" onClick={() => handleTabClick('Resume')} />
-      </div>
-      {activeTab === 'Projects' && (
-        <div className="projects-grid">
-          
-          {projects.map((project, index) => (
-            <React.Fragment key={index}>
-              <Project {...project} />
-            </React.Fragment>
-          ))}
+    <Router>
+      <div className="portfolio">
+        <div className="tabs">
+          <Link to="/about">
+            <Tab label="About Me" />&nbsp;&nbsp;
+          </Link>
+          <Link to="/projects">
+            <Tab label="Projects" />&nbsp;&nbsp;
+          </Link>
+          <Link to="/resume">
+            <Tab label="Resume" />                
+          </Link>
         </div>
-      )}
-      {activeTab === 'Resume' && <Resume />}
-    </div>
+        <Routes>
+          <Route path="/projects" element={<ProjectsGrid projects={projects} />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/about" element={<AboutMe />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
+
+const ProjectsGrid = ({ projects }) => (
+  <div className="projects-grid">
+    {projects.map((project, index) => (
+      <React.Fragment key={index}>
+        <Project {...project} />
+      </React.Fragment>
+    ))}
+  </div>
+);
 
 export default Portfolio;

@@ -125,7 +125,7 @@ a:hover {
 }
 .projects-grid {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: calc();
   justify-content: center; /* Center-align the projects horizontally */
   gap: 20px;
 }
