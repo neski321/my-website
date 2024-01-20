@@ -148,3 +148,12 @@ a:hover {
   display: flex;
   justify-content: center;
 }
+
+.project a {
+  color: #333; /* Set the color for the link */
+  text-decoration: none; /* Remove the default underline */
+}
+
+.project a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
