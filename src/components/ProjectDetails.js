@@ -6,6 +6,7 @@ const projects = [
       title: 'Online Art gallery',
       description: 'A web-based online art gallery database using ReactJS and mongoDB for user authentication and data management.',
       link: 'https://assign6-pvmw.vercel.app/',
+      link2: 'https://github.com/neski321/Art_GalleryReact',
       screenshots: [
         "/static/OnlineArt/OnlineArt1.png",
         "/static/OnlineArt/OnlineArt2.png",
@@ -17,7 +18,7 @@ const projects = [
     },
     {
       title: 'Ticket Manager App',
-      description: 'A ticket management app that uses python and django database for user authentication and data management.',
+      description: 'A Ticket management app that uses python and django database for user authentication and data management.',
       link: 'https://github.com/neski321/MyTicketApp',
       screenshots: [
         "/static/TicketManager/TicketManager1.png",
@@ -76,7 +77,7 @@ const ProjectDetails = () => {
         </div>
   
         <div>
-          <h3>Project Link</h3>
+          <h3>Project Link(s)</h3>
           <a href={link} target="_blank" rel="noopener noreferrer">
             {link}
           </a>
