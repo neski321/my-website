@@ -18,11 +18,17 @@ const projects = [
     {
       title: 'Ticket Manager App',
       description: 'A ticket management app that uses python and django databse for user authentication and data management.',
-      link: 'https://example.com/project2',
+      link: 'https://github.com/neski321/MyTicketApp',
       screenshots: [
-        'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-        'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-        'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+        "/static/TicketManager/TicketManager1.png",
+        "/static/TicketManager/TicketManager2.png",
+        "/static/TicketManager/TicketManager3.png",
+        "/static/TicketManager/TicketManager4.png",
+        "/static/TicketManager/TicketManager5.png",
+        "/static/TicketManager/TicketManager6.png",        
+        "/static/TicketManager/TicketManager7.png",
+        "/static/TicketManager/TicketManager21.png",
+        "/static/TicketManager/TicketManager27.png",
       ],
     },
     {
