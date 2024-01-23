@@ -1,3 +1,30 @@
+.app{
+  background-color: #000;
+  background-size: cover;
+  color: aliceblue;
+}
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Set the height to 100% of the viewport height */
+  background-image: url(https://i0.wp.com/picjumbo.com/wp-content/uploads/dark-black-orange-3d-abstract-wallpaper-free-photo.jpg?w=2210&quality=70);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  color: white;
+
+}
+
+.home h1 {
+  font-size: 5em;
+  margin-bottom: 20px;
+}
+.home h2{
+  font-size: 2em;
+}
+
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
@@ -8,13 +35,7 @@ header {
   background-color: #333;
   color: #fff;
   padding: 20px;
-  margin-bottom: 10px;
-}
-
-.project {
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin: 10px;
+  margin-bottom: 15px;
 }
 
 a {
@@ -25,31 +46,11 @@ a {
 a:hover {
   text-decoration: underline;
 }
-.resume {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.section-title {
-  color: #007bff;
-}
-
-.skills-list {
-  list-style-type: none;
-  padding: 0;
-}
-
-.skills-list li {
-  margin-bottom: 5px;
-}
 
 .project {
   border: 1px solid #ddd;
   padding: 10px;
-  margin: 10px 0;
+  margin: 20px 0;
   background-color: #f5f5f5;
   text-align: center;
 }
@@ -76,9 +77,19 @@ a:hover {
 }
 
 .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8f8f8; /* Set your preferred background color */
+  padding: 10px; /* Adjust padding as needed */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 20px;
   padding: 10px;
-  background-color: #eee;
+  margin: 5px 0;
 }
 
 .linkedin-link {
@@ -88,14 +99,6 @@ a:hover {
 
 .linkedin-link:hover {
   text-decoration: underline;
-}
-.footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #eee;
 }
 
 .footer p {
@@ -111,23 +114,27 @@ a:hover {
 }
 
 .tab {
-  background-color: #f5f5f5;
-  color: #333;
-  border: 1px solid #ddd;
-  padding: 10px 15px;
-  cursor: pointer;
   text-decoration: none;
+  padding: 10px 15px;
+  margin: 2 5px;
+  color: #000; /* Set your preferred text color */
+  background-color: #eee; /* Set your preferred background color */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .tab.active {
-  background-color: #007bff;
-  color: #fff;
+  background-color: #3498db; /* Set your preferred active background color */
+  color: #fff; /* Set your preferred active text color */
 }
+
 .projects-grid {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Center-align the projects horizontally */
-  gap: 20px;
+  flex-wrap: wrap; /* Allow projects to wrap to the next line */
+  justify-content: center;
+  gap: 20px; /* Adjust the gap between projects */
 }
 
 .project {
@@ -147,4 +154,26 @@ a:hover {
 .project-wrapper {
   display: flex;
   justify-content: center;
+}
+
+.project a {
+  color: #333; /* Set the color for the link */
+  text-decoration: none; /* Remove the default underline */
+}
+
+.project a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+.screenshots-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.screenshot {
+  max-width: 500px;
+  height: auto;
+  margin-bottom: 10px;
 }

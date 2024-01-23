@@ -7,10 +7,6 @@ import './index.css';
 function App() {
   return (
     <div className="app">
-      <header className="header">
-        <h1 className="title">Neskines Otieno</h1>
-        <p className="subtitle">Software Developer</p>
-      </header>
       <Portfolio />
       <footer className="footer">
         <p>Contact: neskinescharles@gmail.com</p>
