@@ -22,10 +22,8 @@ const projects = [
       link: 'https://github.com/neski321/MyTicketApp',
       screenshots: [
         "/static/TicketManager/TicketManager1.png",
-        "/static/TicketManager/TicketManager2.png",
         "/static/TicketManager/TicketManager3.png",
         "/static/TicketManager/TicketManager4.png",
-        "/static/TicketManager/TicketManager5.png",
         "/static/TicketManager/TicketManager6.png",        
         "/static/TicketManager/TicketManager7.png",
         "/static/TicketManager/TicketManager21.png",
