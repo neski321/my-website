@@ -57,7 +57,7 @@ const ProjectDetails = () => {
     const { title, description, screenshots, link } = project;
   
     return (
-      <div>
+      <div className="project-details">
         <h2>{title}</h2>
         <p>{description}</p>
   

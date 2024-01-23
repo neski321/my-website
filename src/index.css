@@ -156,6 +156,7 @@ a:hover {
   border-radius: 8px;
   margin-bottom: 10px;
 }
+
 .project-wrapper {
   display: flex;
   justify-content: center;
@@ -169,6 +170,7 @@ a:hover {
 .project a:hover {
   text-decoration: underline; /* Add underline on hover */
 }
+
 .screenshots-container {
   display: flex;
   justify-content: space-between;
@@ -181,4 +183,8 @@ a:hover {
   max-width: 500px;
   height: 300px;
   margin-bottom: 10px;
+}
+
+.project-details{
+  height: auto;
 }
