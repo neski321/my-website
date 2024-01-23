@@ -17,7 +17,7 @@ const projects = [
     },
     {
       title: 'Ticket Manager App',
-      description: 'A ticket management app that uses python and django databse for user authentication and data management.',
+      description: 'A ticket management app that uses python and django database for user authentication and data management.',
       link: 'https://github.com/neski321/MyTicketApp',
       screenshots: [
         "/static/TicketManager/TicketManager1.png",
@@ -32,13 +32,13 @@ const projects = [
       ],
     },
     {
-      title: 'Positive messaging board app',
-      description: 'a simple web page that utilizes python and flask to give users an opportunity to post inspirational messages and share them with their friends.',
-      link: 'https://example.com/project3',
+      title: 'Spreading Positivity Social app',
+      description: 'The Spreading Positivity Social App is a web application I designed to foster a supportive online community by allowing users to share uplifting messages and engage with positive content. Built on the Flask web framework and integrated with Firebase services, the platform provides user authentication, real-time updates, and a dynamic messaging system.',
+      link: 'https://github.com/neski321/Messages_board',
       screenshots: [
-        'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-        'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-        'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+        "/static/MessagesBoard/social_app1.png",
+        "/static/MessagesBoard/social_app2.png",
+        "/static/MessagesBoard/social_app3.png",
       ],
     },
     // Add more projects as needed
