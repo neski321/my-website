@@ -3,6 +3,10 @@
   background-size: cover;
   color: aliceblue;
 }
+.portfolio{
+background-color: #000;
+}
+
 .home {
   display: flex;
   flex-direction: column;

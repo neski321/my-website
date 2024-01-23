@@ -34,11 +34,11 @@ const projects = [
     {
       title: 'Spreading Positivity Social app',
       description: 'The Spreading Positivity Social App is a web application I designed to foster a supportive online community by allowing users to share uplifting messages and engage with positive content. Built on the Flask web framework and integrated with Firebase services, the platform provides user authentication, real-time updates, and a dynamic messaging system.',
-      link: 'https://example.com/project3',
+      link: 'https://github.com/neski321/Messages_board',
       screenshots: [
-        'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-        'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-        'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+        "/static/MessagesBoard/social_app1.png",
+        "/static/MessagesBoard/social_app2.png",
+        "/static/MessagesBoard/social_app3.png",
       ],
     },
     // Add more projects as needed
