@@ -40,6 +40,17 @@ const projects = [
         "/static/MessagesBoard/social_app3.png",
       ],
     },
+    {
+      title: 'Avoiding game',
+      description: 'The game, titled "Avoid the Enemies," involves a player-controlled block that must dodge falling enemy blocks to accumulate a high score. The player moves the block horizontally to avoid collisions with descending enemy blocks. The game features dynamic difficulty, as the speed of the falling enemy blocks gradually increases with the players score.',
+      link: 'https://github.com/neski321/AvoidingGame',
+      screenshots: [
+        "/static/Avoidinggame/Avoidgame1.png",
+        "/static/Avoidinggame/Avoidgame2.png",
+        "/static/Avoidinggame/Avoidgame3.png",
+        "/static/Avoidinggame/Avoidgame4.png",
+      ],
+    },
     // Add more projects as needed
   ];
 
