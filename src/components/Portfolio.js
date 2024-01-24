@@ -17,6 +17,9 @@ const projects = [
   {
     title: 'Positive messaging board app',
   },
+  {
+    title: 'Avoiding game',
+  }
 ];
 
 
