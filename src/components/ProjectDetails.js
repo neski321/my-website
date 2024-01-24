@@ -6,7 +6,6 @@ const projects = [
       title: 'Online Art gallery',
       description: 'A web-based online art gallery database using ReactJS and mongoDB for user authentication and data management.',
       link: 'https://assign6-pvmw.vercel.app/',
-      link2: 'https://github.com/neski321/Art_GalleryReact',
       screenshots: [
         "/static/OnlineArt/OnlineArt1.png",
         "/static/OnlineArt/OnlineArt2.png",
@@ -42,13 +41,12 @@ const projects = [
     },
     {
       title: 'Avoiding game',
-      description: 'The game, titled "Avoid the Enemies," involves a player-controlled block that must dodge falling enemy blocks to accumulate a high score. The player moves the block horizontally to avoid collisions with descending enemy blocks. The game features dynamic difficulty, as the speed of the falling enemy blocks gradually increases with the players score.',
+      description: 'The game, titled "Avoid the Enemies," involves a player-controlled block that must dodge falling enemy blocks to accumulate a high score. The player moves the block horizontally to avoid collisions with descending enemy blocks. The game features dynamic difficulty, as the speed of the falling enemy blocks gradually increases with the players score. The entire game is written in Python using Pygame library.',
       link: 'https://github.com/neski321/AvoidingGame',
       screenshots: [
         "/static/Avoidinggame/Avoidgame1.png",
         "/static/Avoidinggame/Avoidgame2.png",
         "/static/Avoidinggame/Avoidgame3.png",
-        "/static/Avoidinggame/Avoidgame4.png",
       ],
     },
     // Add more projects as needed
@@ -69,7 +67,7 @@ const ProjectDetails = () => {
     return (
       <div className="project-details">
         <h2>{title}</h2>
-        <p>{description}</p>
+        <p style={{fontSize: '24px'}}>{description}</p>
   
         <div>
           <h3>Screenshots</h3>
