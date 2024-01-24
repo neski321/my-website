@@ -25,8 +25,8 @@ const projects = [
         "/static/Ticketmanager/Ticketmanager4.png",
         "/static/Ticketmanager/Ticketmanager6.png",        
         "/static/Ticketmanager/Ticketmanager7.png",
-        "/static/Ticketmanager/Ticketmanager21.png",
-        "/static/Ticketmanager/Ticketmanager27.png",
+        "/static/Ticketmanager/ticketmanager21.png",
+        "/static/Ticketmanager/ticketmanager27.png",
       ],
     },
     {
