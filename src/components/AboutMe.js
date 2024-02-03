@@ -18,7 +18,7 @@ const AboutMe = () => {
         I thrive in the exhilarating atmosphere of hackathons, where challenges become opportunities and collaboration is the key to success. The adrenaline rush of solving problems on the spot fuels my enthusiasm for coding.
       </p>
       <p style={{ fontSize: '24px', lineHeight: '1.6' }}>
-        Being socially active isn't just a checkbox for me—it's a genuine commitment to connecting with like-minded individuals, learning from diverse perspectives, and building meaningful connections. Let's exchange ideas and inspire each other!
+        Being socially active isn't just a checkbox for me, it's a genuine commitment to connecting with like-minded individuals, learning from diverse perspectives, and building meaningful connections. Let's exchange ideas and inspire each other!
       </p>
       <p style={{ fontSize: '24px', lineHeight: '1.6' }}>
         Whether I'm unraveling the mysteries of code or brainstorming at a hackathon, I find joy in the process of learning and creating. Join me on this exciting journey of exploration and growth! 

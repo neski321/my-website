@@ -49,6 +49,12 @@ const projects = [
         "/static/Avoidinggame/Avoidgame3.png",
       ],
     },
+    {
+      title: 'This Webapp',
+      description: 'My personal website built using ReactJS. It features a collection of projects, a resume, and an about me section. The design incorporates a clean and responsive layout with tabs for easy navigation. The aesthetic combines a mix of vibrant colors, gradients, and carefully crafted styling for a visually appealing and user-friendly experience.',
+      link: 'https://github.com/neski321/my-website',
+      screenshots: [],
+    }
     // Add more projects as needed
   ];
 
@@ -59,29 +65,42 @@ const ProjectDetails = () => {
   
     // Check if the project exists
     if (!project) {
-      return <div>Project not found</div>;
+      return <div style={{marginTop: '20px'}}>Project not found</div>;
     }
   
     const { title, description, screenshots, link } = project;
   
+    const renderScreenshots = () => {
+      if (screenshots.length === 0) {
+        return <>
+        <h3>Screenshots</h3>
+        <p style={{fontSize: '24px'}}>No screenshots available for this project.</p>
+        </>
+      }
+
+      return (
+        <div>
+          <h3>Screenshots</h3>
+          <div className='screenshots-container'>
+            {screenshots.map((screenshot, index) => (
+              <img
+                key={index}
+                src={screenshot}
+                alt={`Screenshot ${index + 1}`}
+                className="screenshot"
+              />
+            ))}
+          </div>
+        </div>
+      );
+    };
+
     return (
       <div className="project-details">
         <h2>{title}</h2>
         <p style={{fontSize: '24px'}}>{description}</p>
   
-        <div>
-          <h3>Screenshots</h3>
-          <div className='screenshots-container'>
-          {screenshots.map((screenshot, index) => (
-            <img 
-              key={index} 
-              src={screenshot} 
-              alt={`Screenshot ${index + 1}`} 
-              className="screenshot"
-            />
-          ))}
-          </div>
-        </div>
+          {renderScreenshots()}
   
         <div>
           <h3>Project Link(s)</h3>

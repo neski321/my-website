@@ -15,10 +15,13 @@ const projects = [
     title: 'Ticket Manager App',
   },
   {
-    title: 'Positive messaging board app',
+    title: 'Positive Message app',
   },
   {
-    title: 'Avoiding game',
+    title: 'Avoiding Game',
+  },
+  {
+    title: 'This Webapp',
   }
 ];
 

@@ -14,7 +14,7 @@ const Project = ({ title, description, link }) => (
       <a href={link} target="_blank" rel="noopener noreferrer">
       </a>
     </div>
-  </div>
+  </div>  
 );
 
 
