@@ -56,6 +56,17 @@ const projects = [
       description: 'My personal website built using ReactJS. It features a collection of projects, a resume, and an about me section. The design incorporates a clean and responsive layout with tabs for easy navigation. The aesthetic combines a mix of vibrant colors, gradients, and carefully crafted styling for a visually appealing and user-friendly experience.',
       link: 'https://github.com/neski321/my-website',
       screenshots: [],
+    },
+    {
+      title: 'Travel Bucket List app',
+      description: 'The Travel Bucket List app is a mobile application that allows users to explore information about various countries, view their details, and manage their favorites. The app utilizes the React Native framework for cross-platform development, providing a seamless experience on both iOS and Android devices. It integrates with Firebase for user authentication and Firestore for storing user-specific data such as favorites. Users can log in, view a list of independent countries, access detailed information about each country, and manage their favorite countries.',
+      link: 'https://github.com/neski321/My-FavoritePlacesApp',
+      screenshots: [
+        "/static/TravelList/Travellist1.png",
+        "/static/TravelList/Travellist2.png",
+        "/static/TravelList/Travellist3.png",
+      ],
+      VideoDemo: 'https://vimeo.com/910329944?share=copy'
     }
     // Add more projects as needed
   ];
@@ -90,6 +101,7 @@ const ProjectDetails = () => {
                 src={screenshot}
                 alt={`Screenshot ${index + 1}`}
                 className="screenshot"
+                style={{ height: '250px' , width: '350px' }} 
               />
             ))}
           </div>
