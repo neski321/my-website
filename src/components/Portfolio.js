@@ -22,6 +22,9 @@ const projects = [
   },
   {
     title: 'This Webapp',
+  },
+  {
+    title: 'Travel Bucket List app'
   }
 ];
 
