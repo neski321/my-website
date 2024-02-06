@@ -48,6 +48,7 @@ const projects = [
         "/static/Avoidinggame/Avoidgame2.png",
         "/static/Avoidinggame/Avoidgame3.png",
       ],
+      VideoDemo: '<div style="padding:56.76% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/910294731?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="AvoidingGameDemo"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>'
     },
     {
       title: 'This Webapp',
@@ -68,7 +69,7 @@ const ProjectDetails = () => {
       return <div style={{marginTop: '20px'}}>Project not found</div>;
     }
   
-    const { title, description, screenshots, link } = project;
+    const { title, description, screenshots, link, VideoDemo } = project;
   
     const renderScreenshots = () => {
       if (screenshots.length === 0) {
@@ -95,12 +96,25 @@ const ProjectDetails = () => {
       );
     };
 
+    const renderVideoDemo = () => {
+      if (VideoDemo) {
+        return (
+          <div>
+            <h3>Video Demo</h3>
+            <div dangerouslySetInnerHTML={{ __html: VideoDemo }} />
+          </div>
+        );
+      }
+      return null;
+    };
+
     return (
       <div className="project-details">
         <h2>{title}</h2>
         <p style={{fontSize: '24px'}}>{description}</p>
   
           {renderScreenshots()}
+          {renderVideoDemo()}
   
         <div>
           <h3>Project Link(s)</h3>
