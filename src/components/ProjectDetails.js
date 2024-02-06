@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactPlayer from 'react-player';
 import { useParams } from 'react-router-dom';
 
 const projects = [
@@ -48,6 +49,7 @@ const projects = [
         "/static/Avoidinggame/Avoidgame2.png",
         "/static/Avoidinggame/Avoidgame3.png",
       ],
+      VideoDemo: 'https://vimeo.com/910294731?share=copy'
     },
     {
       title: 'This Webapp',
@@ -61,14 +63,14 @@ const projects = [
 const ProjectDetails = () => {
     const { projectId } = useParams(); // Fetch the projectId from the route parameters
     const projectIndex = parseInt(projectId, 10);
-     const project = projects[projectIndex]; // Fetch the corresponding project details
+    const project = projects[projectIndex]; // Fetch the corresponding project details
   
     // Check if the project exists
     if (!project) {
       return <div style={{marginTop: '20px'}}>Project not found</div>;
     }
   
-    const { title, description, screenshots, link } = project;
+    const { title, description, screenshots, link, VideoDemo } = project;
   
     const renderScreenshots = () => {
       if (screenshots.length === 0) {
@@ -95,12 +97,25 @@ const ProjectDetails = () => {
       );
     };
 
+    const renderVideoDemo = () => {
+      if (VideoDemo) {
+        return (
+          <div>
+            <h3>Video Demo</h3>
+            <ReactPlayer url={VideoDemo} controls width="100%" />
+          </div>
+        );
+      }
+      return null;
+    };
+
     return (
       <div className="project-details">
         <h2>{title}</h2>
         <p style={{fontSize: '24px'}}>{description}</p>
   
           {renderScreenshots()}
+          {renderVideoDemo()}
   
         <div>
           <h3>Project Link(s)</h3>
