@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactPlayer from 'react-player';
 import { useParams } from 'react-router-dom';
 
 const projects = [
@@ -48,7 +49,7 @@ const projects = [
         "/static/Avoidinggame/Avoidgame2.png",
         "/static/Avoidinggame/Avoidgame3.png",
       ],
-      VideoDemo: '<div style="padding:56.76% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/910294731?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="AvoidingGameDemo"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>'
+      VideoDemo: 'https://vimeo.com/910294731?share=copy'
     },
     {
       title: 'This Webapp',
@@ -62,7 +63,7 @@ const projects = [
 const ProjectDetails = () => {
     const { projectId } = useParams(); // Fetch the projectId from the route parameters
     const projectIndex = parseInt(projectId, 10);
-     const project = projects[projectIndex]; // Fetch the corresponding project details
+    const project = projects[projectIndex]; // Fetch the corresponding project details
   
     // Check if the project exists
     if (!project) {
@@ -101,7 +102,7 @@ const ProjectDetails = () => {
         return (
           <div>
             <h3>Video Demo</h3>
-            <div dangerouslySetInnerHTML={{ __html: VideoDemo }} />
+            <ReactPlayer url={VideoDemo} controls width="100%" />
           </div>
         );
       }
