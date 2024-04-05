@@ -4,7 +4,11 @@ I embarked on a journey to showcase my unique skills and experiences through thi
 
 ## Technologies Used:
 React for a dynamic and interactive frontend.
+
 React Router for intuitive navigation.
+
 HTML5 and CSS for structure and personalized styling.
+
 JavaScript to bring dynamic functionality to life.
+
 Depployed on Vercel.
