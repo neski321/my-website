@@ -4,11 +4,12 @@ const resume = () => {
   return (
     <div style={{ margin: '0px', padding: '0px', border: 'none', marginTop: '10px' }}>
       <iframe
-        src="https://docs.google.com/document/d/e/2PACX-1vRllB09Fs1jIgJW6r81jrixxwWFSNDy3gjMXv45iO2_E3DtlU_P0mb86dToAH9QrQ/pub?embedded=true"
+        src="https://docs.google.com/document/d/e/2PACX-1vRllB09Fs1jIgJW6r81jrixxwWFSNDy3gjMXv45iO2_E3DtlU_P0mb86dToAH9QrQ/edit"
         title="Google Docs Embed"
         width="900"
         height="1000"
         style={{ border: 'none' }}
+        allow="clipboard-read; clipboard-write"
       ></iframe>
     </div>
   );
