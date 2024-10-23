@@ -9,7 +9,7 @@ const AboutMe = () => {
         I'm Neskines Otieno, a dedicated student on a journey into the dynamic world of software development at Seneca College. My path is marked by a curious mind, a passion for coding, and a talent for crafting innovative solutions.
       </p>
       <p style={{ fontSize: '24px', lineHeight: '1.6' }}>
-        Currently, I'm actively seeking a co-op opportunity. I am eager to apply my skills, contribute to a dynamic team, and gain valuable real-world experience in the field of software development.
+        Currently, I'm exploring opportunities for growth and excited to apply my skills in software development. I'm driven to contribute to innovative projects and collaborate with teams that push the boundaries of technology.
       </p>
       <p style={{ fontSize: '24px', lineHeight: '1.6' }}>
         When I'm not immersed in lines of code, you'll likely find me engrossed in a captivating book. I firmly believe in the power of words to broaden perspectives and ignite creativity.
@@ -24,6 +24,7 @@ const AboutMe = () => {
         Whether I'm unraveling the mysteries of code or brainstorming at a hackathon, I find joy in the process of learning and creating. Join me on this exciting journey of exploration and growth! 
       </p>
     </div>
+
   );
 };
 
