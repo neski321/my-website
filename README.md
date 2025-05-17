@@ -1,14 +1,20 @@
 ## Overview
 
-I embarked on a journey to showcase my unique skills and experiences through this captivating portfolio website. Crafted using React, this personalized web application reflects the essence of my journey in the world of software development:
+I embarked on a journey to showcase my unique skills and experiences through this modern and interactive portfolio website. Built with Next.js and thoughtfully designed with a responsive UI, this portfolio reflects the essence of my growth and passion in the field of software development.
+
+It highlights my projects, resume, and contact information, all wrapped in a sleek, dark/light mode-enabled experience.
 
 ## Technologies Used:
-React for a dynamic and interactive frontend.
+Next.js (App Router) — Framework for building fast, SEO-friendly React apps
 
-React Router for intuitive navigation.
+TypeScript — Ensures code reliability and developer confidence
 
-HTML5 and CSS for structure and personalized styling.
+Tailwind CSS — Utility-first CSS framework for responsive and custom styling
 
-JavaScript to bring dynamic functionality to life.
+Framer Motion — Smooth animations and transitions
 
-Depployed on Vercel.
+Lucide React — Clean and customizable icon set
+
+next-themes — Enables seamless dark/light theme toggling
+
+Vercel — Hosting and CI/CD platform
