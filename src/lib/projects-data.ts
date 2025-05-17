@@ -8,6 +8,35 @@ export interface ProjectType {
 
 export const projects: ProjectType[] = [
   {
+    title: "Josh in a Dream",
+    description:
+      "Josh in a Dream is a third-person platformer game developed in Unreal Engine 5.5. Set in a surreal dreamscape, players control Josh as he explores a single, intricately designed level filled with enemies, traps, and environmental challenges. The main objective is to find two hidden keys placed in different sections of the map, unlock two doors, and reach the gem at the end of the level. Gameplay features include moving platforms, jump stations for enhanced traversal, combat with enemies, health pickups, and strategically placed checkpoints that allow players to respawn and continue their journey. Josh’s character model was sourced from Mixamo and enhanced with custom animation blueprints for smooth movement and interaction. Built using UE5.5’s Nanite and Lumen technologies, the game delivers high-quality visuals, responsive gameplay, and immersive lighting—all powered through Blueprint scripting.",
+    link: "https://github.com/neski321/Josh-In-A-Dream",
+    screenshots: [
+      "/static/JoshDream/Josh1.png",
+      "/static/JoshDream/Josh2.png",
+      "/static/JoshDream/Josh3.png",
+      "/static/JoshDream/Josh4.png",
+      "/static/JoshDream/Josh5.png",
+      "/static/JoshDream/Josh6.png",
+      "/static/JoshDream/Josh7.png",
+      "/static/JoshDream/Josh8.png",
+    ],
+  },
+  {
+    title: "E-commerce Store",
+    description:
+      "The E-commerce Store is a full-stack web application that allows users to browse, search, and manage products while providing role-based access for administrative functions. The frontend is developed using React to deliver an intuitive user interface, and the backend is powered by Django. Firebase is integrated for user authentication and role management, while PostgreSQL Cloud handles the product backlog and ensures efficient data storage. The app is deployed on Render for a smooth and scalable hosting solution. Users can explore a catalog of products, manage their accounts, and administrators can oversee product inventory and updates.",
+    link: "https://github.com/neski321/E-Commerce",
+    screenshots: [
+      "/static/Ecommerce/Ecommerce1.png",
+      "/static/Ecommerce/Ecommerce2.png",
+      "/static/Ecommerce/Ecommerce3.png",
+      "/static/Ecommerce/Ecommerce4.png",
+      "/static/Ecommerce/Ecommerce5.png",
+    ],
+  },
+  {
     title: "Online Art gallery",
     description:
       "A web-based online art gallery database using ReactJS and mongoDB for user authentication and data management.",
@@ -60,7 +89,7 @@ export const projects: ProjectType[] = [
     VideoDemo: "https://vimeo.com/910294731?share=copy",
   },
   {
-    title: "Developer Portfolio Website",
+    title: "This Website",
     description:
       "A modern and interactive portfolio built with Next.js (App Router). This site includes a featured project showcase, animated transitions, an embedded resume viewer, and a responsive contact form. It also supports dark/light themes, smooth animations with Framer Motion, and mobile-first responsive design — all deployed on Vercel.",
     link: "https://github.com/neski321/my-website",
@@ -77,35 +106,5 @@ export const projects: ProjectType[] = [
       "/static/TravelList/Travellist3.png",
     ],
     VideoDemo: "https://vimeo.com/910329944?share=copy",
-  },
-  {
-    title: "E-commerce Store",
-    description:
-      "The E-commerce Store is a full-stack web application that allows users to browse, search, and manage products while providing role-based access for administrative functions. The frontend is developed using React to deliver an intuitive user interface, and the backend is powered by Django. Firebase is integrated for user authentication and role management, while PostgreSQL Cloud handles the product backlog and ensures efficient data storage. The app is deployed on Render for a smooth and scalable hosting solution. Users can explore a catalog of products, manage their accounts, and administrators can oversee product inventory and updates.",
-    link: "https://github.com/neski321/E-Commerce",
-    screenshots: [
-      "/static/Ecommerce/Ecommerce1.png",
-      "/static/Ecommerce/Ecommerce2.png",
-      "/static/Ecommerce/Ecommerce3.png",
-      "/static/Ecommerce/Ecommerce4.png",
-      "/static/Ecommerce/Ecommerce5.png",
-    ],
-  },
-  {
-  title: "Josh in a Dream",
-  description:
-    "Josh in a Dream is a third-person platformer game developed in Unreal Engine 5.5. Set in a surreal dreamscape, players control Josh as he explores a single, intricately designed level filled with enemies, traps, and environmental challenges. The main objective is to find two hidden keys placed in different sections of the map, unlock two doors, and reach the gem at the end of the level. Gameplay features include moving platforms, jump stations for enhanced traversal, combat with enemies, health pickups, and strategically placed checkpoints that allow players to respawn and continue their journey. Josh’s character model was sourced from Mixamo and enhanced with custom animation blueprints for smooth movement and interaction. Built using UE5.5’s Nanite and Lumen technologies, the game delivers high-quality visuals, responsive gameplay, and immersive lighting—all powered through Blueprint scripting.",
-  link: "https://github.com/neski321/Josh-In-A-Dream",
-  screenshots: [
-    "/static/JoshDream/Josh1.png",
-    "/static/JoshDream/Josh2.png",
-    "/static/JoshDream/Josh3.png",
-    "/static/JoshDream/Josh4.png",
-    "/static/JoshDream/Josh5.png",
-    "/static/JoshDream/Josh6.png",
-    "/static/JoshDream/Josh7.png",
-    "/static/JoshDream/Josh8.png",
-  ],
-}
-
+  }  
 ]
