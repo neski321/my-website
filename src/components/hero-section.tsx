@@ -117,7 +117,7 @@ export function HeroSection() {
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <a href="mailto:contact@example.com" aria-label="Email">
+            <a href="mailto:nmotieno@myseneca.ca" aria-label="Email">
               <Mail className="h-5 w-5" />
             </a>
           </Button>
