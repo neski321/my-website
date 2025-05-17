@@ -91,4 +91,21 @@ export const projects: ProjectType[] = [
       "/static/Ecommerce/Ecommerce5.png",
     ],
   },
+  {
+  title: "Josh in a Dream",
+  description:
+    "Josh in a Dream is a third-person platformer game developed in Unreal Engine 5.5. Set in a surreal dreamscape, players control Josh as he explores a single, intricately designed level filled with enemies, traps, and environmental challenges. The main objective is to find two hidden keys placed in different sections of the map, unlock two doors, and reach the gem at the end of the level. Gameplay features include moving platforms, jump stations for enhanced traversal, combat with enemies, health pickups, and strategically placed checkpoints that allow players to respawn and continue their journey. Josh’s character model was sourced from Mixamo and enhanced with custom animation blueprints for smooth movement and interaction. Built using UE5.5’s Nanite and Lumen technologies, the game delivers high-quality visuals, responsive gameplay, and immersive lighting—all powered through Blueprint scripting.",
+  link: "https://github.com/neski321/Josh-In-A-Dream",
+  screenshots: [
+    "/static/JoshDream/Josh1.png",
+    "/static/JoshDream/Josh2.png",
+    "/static/JoshDream/Josh3.png",
+    "/static/JoshDream/Josh4.png",
+    "/static/JoshDream/Josh5.png",
+    "/static/JoshDream/Josh6.png",
+    "/static/JoshDream/Josh7.png",
+    "/static/JoshDream/Josh8.png",
+  ],
+}
+
 ]
