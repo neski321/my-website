@@ -82,7 +82,7 @@ export function ContactSection() {
                 </div>
                 <div className="mt-8">
                   <Button asChild className="w-full">
-                    <a href="mailto:contact@example.com">Send Email</a>
+                    <a href="mailto:nmotieno@myseneca.ca">Send Email</a>
                   </Button>
                 </div>
               </CardContent>
