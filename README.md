@@ -20,10 +20,17 @@ next-themes — Enables seamless dark/light theme toggling
 Vercel — Hosting and CI/CD platform
 
 ##Features
+
 Dynamic routing with Next.js App Router
+
 Animated sections using Framer Motion
+
 Mobile responsive design
-Toggleable light/dark theme    
+
+Toggleable light/dark theme  
+
 Embedded resume viewer
+
 GitHub + LinkedIn links
+
 SEO-friendly structure and deployment on Vercel
