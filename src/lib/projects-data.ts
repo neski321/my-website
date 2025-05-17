@@ -60,9 +60,9 @@ export const projects: ProjectType[] = [
     VideoDemo: "https://vimeo.com/910294731?share=copy",
   },
   {
-    title: "This Webapp",
+    title: "Developer Portfolio Website",
     description:
-      "My personal website built using ReactJS. It features a collection of projects, a resume, and an about me section. The design incorporates a clean and responsive layout with tabs for easy navigation. The aesthetic combines a mix of vibrant colors, gradients, and carefully crafted styling for a visually appealing and user-friendly experience.",
+      "A modern and interactive portfolio built with Next.js (App Router). This site includes a featured project showcase, animated transitions, an embedded resume viewer, and a responsive contact form. It also supports dark/light themes, smooth animations with Framer Motion, and mobile-first responsive design — all deployed on Vercel.",
     link: "https://github.com/neski321/my-website",
     screenshots: [],
   },
