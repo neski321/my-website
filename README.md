@@ -19,7 +19,7 @@ next-themes — Enables seamless dark/light theme toggling
 
 Vercel — Hosting and CI/CD platform
 
-##Features
+## Features
 
 Dynamic routing with Next.js App Router
 
