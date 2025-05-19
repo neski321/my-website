@@ -11,11 +11,14 @@ export const projects: ProjectType[] = [
     title: "Customer Segmentation App",
     description:
       "Customer Segmentation App is a machine learning and data science project I developed using Python and Streamlit to turn CRM data into actionable business insights. The app enables users to upload CSV or Excel datasets, intelligently map custom column names, and perform RFM (Recency, Frequency, Monetary) analysis to better understand customer behavior. Using KMeans clustering, the tool segments customers based on purchase patterns and presents results through intuitive dashboards and interactive visualizations. Designed with flexibility and usability in mind, it features encoding detection, dynamic cluster sizing, country-based filtering, and exportable summaries. This project reflects my passion for applying machine learning and data science techniques to real-world problems, bridging the gap between technical analysis and decision-making.",
-    link: "https://github.com/neski321/Customer_segment",
+    link: "https://neski321-customer-segment-customer-segapp-pl9bfj.streamlit.app/",
     screenshots: [
       "/static/CustomerSegmentationApp/csa1.png",
       "/static/CustomerSegmentationApp/csa2.png",
       "/static/CustomerSegmentationApp/csa3.png",
+      "/static/CustomerSegmentationApp/csa4.png",
+      "/static/CustomerSegmentationApp/csa5.png",
+      "/static/CustomerSegmentationApp/csa6.png",
     ],
   },
 
