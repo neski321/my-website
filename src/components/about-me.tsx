@@ -126,10 +126,14 @@ export function AboutMe() {
                 <h4 className="font-semibold mb-2">Backend</h4>
                 <ul className="list-disc list-inside space-y-1 text-muted-foreground">
                   <li>Python</li>
+                  <li>Flask</li>
+                  <li>C/C++</li>
                   <li>Django</li>
+                  <li>PostgressSql</li>
                   <li>Node.js</li>
                   <li>MongoDB</li>
                   <li>Firebase</li>
+                  <li>AWS</li>
                 </ul>
               </div>
             </div>
