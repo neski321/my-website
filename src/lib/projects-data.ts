@@ -8,6 +8,18 @@ export interface ProjectType {
 
 export const projects: ProjectType[] = [
   {
+    title: "Customer Segmentation App",
+    description:
+      "Customer Segmentation App is a data science web application built with Streamlit and Python that allows users to upload CRM datasets, analyze customer behavior using RFM (Recency, Frequency, Monetary) analysis, and segment customers through KMeans clustering. Designed for marketers and analysts, the app provides a complete workflow from dataset upload to visual segmentation insights. Features include intelligent column mapping for custom data formats, automatic handling of different file encodings, dynamic filtering by country, and responsive cluster size based on available data. The application also offers interactive charts, customer summaries, and downloadable segment reports. Built with modular Python scripts, Streamlit UI components, and Seaborn/Matplotlib visualizations, the tool demonstrates practical machine learning integration for business insight.",
+    link: "https://github.com/neski321/Customer_segment",
+    screenshots: [
+      "/static/CustomerSegmentationApp/csa1.png",
+      "/static/CustomerSegmentationApp/csa2.png",
+      "/static/CustomerSegmentationApp/csa3.png",
+    ],
+  },
+
+  {
     title: "Josh in a Dream",
     description:
       "Josh in a Dream is a third-person platformer game developed in Unreal Engine 5.5. Set in a surreal dreamscape, players control Josh as he explores a single, intricately designed level filled with enemies, traps, and environmental challenges. The main objective is to find two hidden keys placed in different sections of the map, unlock two doors, and reach the gem at the end of the level. Gameplay features include moving platforms, jump stations for enhanced traversal, combat with enemies, health pickups, and strategically placed checkpoints that allow players to respawn and continue their journey. Josh’s character model was sourced from Mixamo and enhanced with custom animation blueprints for smooth movement and interaction. Built using UE5.5’s Nanite and Lumen technologies, the game delivers high-quality visuals, responsive gameplay, and immersive lighting—all powered through Blueprint scripting.",
