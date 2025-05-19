@@ -14,7 +14,7 @@ export function ResumeViewer() {
         <h2 className="text-2xl font-bold">My Resume</h2>
         <Button asChild>
           <a
-            href="https://docs.google.com/document/d/e/2PACX-1vRllB09Fs1jIgJW6r81jrixxwWFSNDy3gjMXv45iO2_E3DtlU_P0mb86dToAH9QrQ/pub"
+            href="https://docs.google.com/document/d/1iEdVgJ2oHSZpCdCDFFT_roXBdrDqMbp1/edit?usp=sharing&ouid=102217200542318471758&rtpof=true&sd=true"
             target="_blank"
             rel="noopener noreferrer"
             download="Neskines_Otieno_Resume.pdf"
