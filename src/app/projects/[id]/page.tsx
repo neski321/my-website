@@ -2,14 +2,10 @@ import { ProjectDetail } from "@/src/components/project-detail"
 import { projects } from "@/src/lib/projects-data"
 import { notFound } from "next/navigation"
 
-export function generateStaticParams() {
-  return projects.map((project, index) => ({
-    id: index.toString(),
-  }))
-}
+export const dynamic = "force-dynamic" // Enforce dynamic SSR
 
-export default function ProjectPage({ params }: { params: { id: string } }) {
-  const projectIndex = Number.parseInt(params.id, 10)
+export default async function ProjectPage({ params }: { params: { id: string } }) {
+  const projectIndex = Number(params.id)
   const project = projects[projectIndex]
 
   if (!project) {

@@ -37,6 +37,7 @@ export const projects: ProjectType[] = [
       "/static/JoshDream/Josh7.png",
       "/static/JoshDream/Josh8.png",
     ],
+    VideoDemo: "https://vimeo.com/1086211574?share=copy#t=0"
   },
   {
     title: "E-commerce Store",
