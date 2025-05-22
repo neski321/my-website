@@ -43,7 +43,7 @@ export const projects: ProjectType[] = [
     title: "E-commerce Store",
     description:
       "The E-commerce Store is a full-stack web application that allows users to browse, search, and manage products while providing role-based access for administrative functions. The frontend is developed using React to deliver an intuitive user interface, and the backend is powered by Django. Firebase is integrated for user authentication and role management, while PostgreSQL Cloud handles the product backlog and ensures efficient data storage. The app is deployed on Render for a smooth and scalable hosting solution. Users can explore a catalog of products, manage their accounts, and administrators can oversee product inventory and updates.",
-    link: "https://github.com/neski321/E-Commerce",
+    link: "https://e-commerce-neski.onrender.com",
     screenshots: [
       "/static/Ecommerce/Ecommerce1.png",
       "/static/Ecommerce/Ecommerce2.png",
