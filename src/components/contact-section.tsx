@@ -57,8 +57,8 @@ export function ContactSection() {
                       <Mail className="w-5 h-5 mr-3 text-primary mt-1" />
                       <div>
                         <p className="font-medium">Email</p>
-                        <a href="mailto:contact@example.com" className="text-muted-foreground hover:text-primary">
-                          nmotieno@myseneca.ca
+                        <a href="mailto:neskineso@gmail.com" className="text-muted-foreground hover:text-primary">
+                          neskineso@gmail.com
                         </a>
                       </div>
                     </div>
@@ -66,7 +66,7 @@ export function ContactSection() {
                       <Phone className="w-5 h-5 mr-3 text-primary mt-1" />
                       <div>
                         <p className="font-medium">Phone</p>
-                        <a href="tel:+1234567890" className="text-muted-foreground hover:text-primary">
+                        <a href="tel:+6476717323" className="text-muted-foreground hover:text-primary">
                           (647) 671-7323
                         </a>
                       </div>
@@ -82,7 +82,7 @@ export function ContactSection() {
                 </div>
                 <div className="mt-8">
                   <Button asChild className="w-full">
-                    <a href="mailto:nmotieno@myseneca.ca">Send Email</a>
+                    <a href="mailto:neskineso@gmail.com">Send Email</a>
                   </Button>
                 </div>
               </CardContent>
