@@ -7,6 +7,25 @@ export interface ProjectType {
 }
 
 export const projects: ProjectType[] = [
+    {
+    title: "PennyPincher by Neski",
+    description:
+      "PennyPincher is a full-featured personal finance tracker that empowers users to manage expenses, income, budgets, and savings goals. Built with Firebase and Genkit, it includes charts, AI-powered category suggestions, multi-currency support, and intuitive UX features like data import/export, filtering, and budgeting insights. Developed using Next.js, Tailwind, Firestore, and Recharts, it’s designed for practical, everyday use with mobile responsiveness and visual feedback baked in.",
+    link: "https://pennypincherbyneski.vercel.app/",
+    screenshots: [
+      "/static/PennyPincher/pp1.png",
+      "/static/PennyPincher/pp2.png",
+      "/static/PennyPincher/pp3.png",
+      "/static/PennyPincher/pp4.png",
+      "/static/PennyPincher/pp5.png",
+      "/static/PennyPincher/pp6.png",
+      "/static/PennyPincher/pp7.png",
+      "/static/PennyPincher/pp8.png",
+      "/static/PennyPincher/pp9.png",
+      "/static/PennyPincher/pp10.png"
+    ],
+  },
+  
   {
     title: "Customer Segmentation App",
     description:
