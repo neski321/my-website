@@ -136,14 +136,12 @@ export function ContactForm() {
             required
           />
         </div>
-        <Button type="submit" className="w-full" disabled={isSubmitting}>
-          {isSubmitting ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Sending...
-            </>
-          ) : (
-            "Send Message"
-          )}
+        <Button 
+          type="submit" 
+          className="w-full filter blur-sm cursor-not-allowed opacity-50" 
+          disabled
+        >
+          Send Message
         </Button>
       </form>
     </>
