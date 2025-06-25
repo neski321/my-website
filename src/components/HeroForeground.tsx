@@ -171,24 +171,40 @@ export function HeroForeground() {
           whileTap={{ scale: 0.95 }}
         >
           <Button asChild size="lg" variant="outline">
-            <Link href="/resume.pdf" target="_blank" download>
-              Download CV <Download className="ml-2 h-5 w-5" />
+            <Link href="/contact">
+              Get In Touch
             </Link>
           </Button>
         </motion.div>
       </motion.div>
 
       {/* Social Links */}
-      <motion.div variants={fadeUpVariant} className="flex justify-center space-x-6 pt-8">
-        <motion.a href="https://github.com/Neskines" target="_blank" rel="noopener noreferrer" whileHover={{ y: -3 }}>
-          <Github className="h-7 w-7 text-muted-foreground hover:text-primary transition-colors" />
-        </motion.a>
-        <motion.a href="https://linkedin.com/in/otieno-neskines" target="_blank" rel="noopener noreferrer" whileHover={{ y: -3 }}>
-          <Linkedin className="h-7 w-7 text-muted-foreground hover:text-primary transition-colors" />
-        </motion.a>
-        <motion.a href="mailto:otienoneskines@gmail.com" whileHover={{ y: -3 }}>
-          <Mail className="h-7 w-7 text-muted-foreground hover:text-primary transition-colors" />
-        </motion.a>
+      <motion.div variants={fadeUpVariant} className="flex justify-center space-x-4 pt-8">
+        {[
+          { href: "https://github.com/neski321", icon: Github, label: "GitHub" },
+          { href: "https://www.linkedin.com/in/neskines-o-5205b3177/", icon: Linkedin, label: "LinkedIn" },
+          { href: "mailto:neskineso@gmail.com", icon: Mail, label: "Email" },
+        ].map((social, index) => (
+          <motion.div
+            key={social.label}
+            whileHover={{ scale: 1.1, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 + index * 0.1 }}
+          >
+            <Button variant="ghost" size="icon" asChild className="group">
+              <a
+                href={social.href}
+                target={social.href.startsWith('mailto:') ? undefined : "_blank"}
+                rel={social.href.startsWith('mailto:') ? undefined : "noopener noreferrer"}
+                aria-label={social.label}
+              >
+                <social.icon className="h-5 w-5 transition-colors group-hover:text-primary" />
+              </a>
+            </Button>
+          </motion.div>
+        ))}
       </motion.div>
     </motion.div>
   )
