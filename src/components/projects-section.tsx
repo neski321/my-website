@@ -124,7 +124,7 @@ export function ProjectsSection() {
           >
             <div className="w-12 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-              <span className="bg-gradient-to-r from-blue-600 via-pink-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-md">
+              <span className="bg-gradient-to-r from-blue-600 via-violet-500 to-pink-500 bg-clip-text text-transparent drop-shadow-md">
                 Featured
               </span>
               <br />
@@ -139,7 +139,7 @@ export function ProjectsSection() {
           >
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
               A curated selection of my recent work showcasing 
-              <span className="bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-md"> innovative solutions</span> and 
+              <span className="bg-gradient-to-r from-blue-600 via-violet-500 to-pink-500 bg-clip-text text-transparent drop-shadow-md"> innovative solutions</span> and 
               <span className="bg-gradient-to-r from-purple-500 via-fuchsia-400 to-pink-500 bg-clip-text text-transparent drop-shadow-md"> cutting-edge technologies</span>.
             </p>
             

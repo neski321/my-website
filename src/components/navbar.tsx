@@ -129,7 +129,7 @@ export function Navbar() {
                   <Code className="h-6 w-6 text-primary" />
                 </div>
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 via-pink-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-md">
+              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 via-violet-500 to-pink-500 bg-clip-text text-transparent drop-shadow-md">
                 Neskines Otieno
               </span>
             </Link>
