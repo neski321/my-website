@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
+import { useIsMobile } from "../hooks/use-mobile";
 
 interface ChromaGridItem {
   image: string;
@@ -34,6 +35,7 @@ const ChromaGrid = ({
   const setX = useRef<((v: number) => void) | null>(null);
   const setY = useRef<((v: number) => void) | null>(null);
   const pos = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+  const isMobile = useIsMobile();
 
   const demo: ChromaGridItem[] = [
     {
@@ -51,6 +53,7 @@ const ChromaGrid = ({
   const data = items?.length ? items : demo;
 
   useEffect(() => {
+    if (isMobile) return;
     const el = rootRef.current;
     if (!el) return;
     setX.current = gsap.quickSetter(el, "--x", "px") as (v: number) => void;
@@ -76,6 +79,7 @@ const ChromaGrid = ({
   };
 
   const handleMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (isMobile) return;
     const r = rootRef.current?.getBoundingClientRect();
     if (!r) return;
     moveTo(e.clientX - r.left, e.clientY - r.top);
@@ -85,6 +89,7 @@ const ChromaGrid = ({
   };
 
   const handleLeave = () => {
+    if (isMobile) return;
     if (fadeRef.current) {
       gsap.to(fadeRef.current, {
         opacity: 1,
@@ -103,6 +108,7 @@ const ChromaGrid = ({
   };
 
   const handleCardMove = (e: React.MouseEvent<HTMLElement>) => {
+    if (isMobile) return;
     const c = e.currentTarget as HTMLElement;
     const rect = c.getBoundingClientRect();
     c.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
@@ -115,11 +121,13 @@ const ChromaGrid = ({
       onPointerMove={handleMove}
       onPointerLeave={handleLeave}
       className={`relative w-full h-full flex flex-wrap justify-center items-start gap-3 ${className}`}
-      style={{
-        "--r": `${radius}px`,
-        "--x": "50%",
-        "--y": "50%",
-      } as React.CSSProperties}
+      style={
+        {
+          "--r": `${radius}px`,
+          "--x": "50%",
+          "--y": "50%",
+        } as React.CSSProperties
+      }
     >
       {data.map((c, i) => (
         <article
@@ -127,13 +135,15 @@ const ChromaGrid = ({
           onMouseMove={handleCardMove}
           onClick={() => handleCardClick(c)}
           className="group relative flex flex-col w-[300px] rounded-[20px] overflow-hidden border-2 border-transparent transition-colors duration-300 cursor-pointer"
-          style={{
-            // @ts-ignore
-            "--card-border": c.borderColor || "transparent",
-            background: c.gradient,
-            // @ts-ignore
-            "--spotlight-color": "rgba(255,255,255,0.3)",
-          } as React.CSSProperties}
+          style={
+            {
+              // @ts-ignore
+              "--card-border": c.borderColor || "transparent",
+              background: c.gradient,
+              // @ts-ignore
+              "--spotlight-color": "rgba(255,255,255,0.3)",
+            } as React.CSSProperties
+          }
         >
           <div
             className="absolute inset-0 pointer-events-none transition-opacity duration-500 z-20 opacity-0 group-hover:opacity-100"
@@ -166,32 +176,36 @@ const ChromaGrid = ({
           </footer>
         </article>
       ))}
-      <div
-        className="absolute inset-0 pointer-events-none z-30"
-        style={{
-          backdropFilter: "grayscale(1) brightness(0.78)",
-          WebkitBackdropFilter: "grayscale(1) brightness(0.78)",
-          background: "rgba(0,0,0,0.001)",
-          maskImage:
-            "radial-gradient(circle var(--r) at var(--x) var(--y),transparent 0%,transparent 15%,rgba(0,0,0,0.10) 30%,rgba(0,0,0,0.22)45%,rgba(0,0,0,0.35)60%,rgba(0,0,0,0.50)75%,rgba(0,0,0,0.68)88%,white 100%)",
-          WebkitMaskImage:
-            "radial-gradient(circle var(--r) at var(--x) var(--y),transparent 0%,transparent 15%,rgba(0,0,0,0.10) 30%,rgba(0,0,0,0.22)45%,rgba(0,0,0,0.35)60%,rgba(0,0,0,0.50)75%,rgba(0,0,0,0.68)88%,white 100%)",
-        }}
-      />
-      <div
-        ref={fadeRef}
-        className="absolute inset-0 pointer-events-none transition-opacity duration-[250ms] z-40"
-        style={{
-          backdropFilter: "grayscale(1) brightness(0.78)",
-          WebkitBackdropFilter: "grayscale(1) brightness(0.78)",
-          background: "rgba(0,0,0,0.001)",
-          maskImage:
-            "radial-gradient(circle var(--r) at var(--x) var(--y),white 0%,white 15%,rgba(255,255,255,0.90)30%,rgba(255,255,255,0.78)45%,rgba(255,255,255,0.65)60%,rgba(255,255,255,0.50)75%,rgba(255,255,255,0.32)88%,transparent 100%)",
-          WebkitMaskImage:
-            "radial-gradient(circle var(--r) at var(--x) var(--y),white 0%,white 15%,rgba(255,255,255,0.90)30%,rgba(255,255,255,0.78)45%,rgba(255,255,255,0.65)60%,rgba(255,255,255,0.50)75%,rgba(255,255,255,0.32)88%,transparent 100%)",
-          opacity: 1,
-        }}
-      />
+      {!isMobile && (
+        <>
+          <div
+            className="absolute inset-0 pointer-events-none z-30"
+            style={{
+              backdropFilter: "grayscale(1) brightness(0.78)",
+              WebkitBackdropFilter: "grayscale(1) brightness(0.78)",
+              background: "rgba(0,0,0,0.001)",
+              maskImage:
+                "radial-gradient(circle var(--r) at var(--x) var(--y),transparent 0%,transparent 15%,rgba(0,0,0,0.10) 30%,rgba(0,0,0,0.22)45%,rgba(0,0,0,0.35)60%,rgba(0,0,0,0.50)75%,rgba(0,0,0,0.68)88%,white 100%)",
+              WebkitMaskImage:
+                "radial-gradient(circle var(--r) at var(--x) var(--y),transparent 0%,transparent 15%,rgba(0,0,0,0.10) 30%,rgba(0,0,0,0.22)45%,rgba(0,0,0,0.35)60%,rgba(0,0,0,0.50)75%,rgba(0,0,0,0.68)88%,white 100%)",
+            }}
+          />
+          <div
+            ref={fadeRef}
+            className="absolute inset-0 pointer-events-none transition-opacity duration-[250ms] z-40"
+            style={{
+              backdropFilter: "grayscale(1) brightness(0.78)",
+              WebkitBackdropFilter: "grayscale(1) brightness(0.78)",
+              background: "rgba(0,0,0,0.001)",
+              maskImage:
+                "radial-gradient(circle var(--r) at var(--x) var(--y),white 0%,white 15%,rgba(255,255,255,0.90)30%,rgba(255,255,255,0.78)45%,rgba(255,255,255,0.65)60%,rgba(255,255,255,0.50)75%,rgba(255,255,255,0.32)88%,transparent 100%)",
+              WebkitMaskImage:
+                "radial-gradient(circle var(--r) at var(--x) var(--y),white 0%,white 15%,rgba(255,255,255,0.90)30%,rgba(255,255,255,0.78)45%,rgba(255,255,255,0.65)60%,rgba(255,255,255,0.50)75%,rgba(255,255,255,0.32)88%,transparent 100%)",
+              opacity: 1,
+            }}
+          />
+        </>
+      )}
     </div>
   );
 };

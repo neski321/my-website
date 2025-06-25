@@ -1,12 +1,14 @@
 "use client";
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
+import { useIsMobile } from "../hooks/use-mobile";
 
 const Threads = dynamic(() => import("./Threads"), { ssr: false });
 
 export default function ThreadsBackground() {
   const pathname = usePathname();
-  if (pathname === "/") return null;
+  const isMobile = useIsMobile();
+  if (pathname === "/" || isMobile) return null;
   return (
     <div
       style={{

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { Renderer, Program, Mesh, Triangle, Color } from "ogl";
+import { useIsMobile } from "../hooks/use-mobile";
 
 interface ThreadsProps {
   color?: [number, number, number];
@@ -136,9 +137,10 @@ const Threads: React.FC<ThreadsProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const animationFrameId = useRef<number | null>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (isMobile || !containerRef.current) return;
     const container = containerRef.current;
 
     const renderer = new Renderer({ alpha: true });
@@ -233,7 +235,11 @@ const Threads: React.FC<ThreadsProps> = ({
       if (container.contains(gl.canvas)) container.removeChild(gl.canvas);
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
-  }, [color, amplitude, distance, enableMouseInteraction]);
+  }, [color, amplitude, distance, enableMouseInteraction, isMobile]);
+
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <div
