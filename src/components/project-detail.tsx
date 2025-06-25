@@ -9,6 +9,11 @@ import type { ProjectType } from "../lib/projects-data"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight, Github, ExternalLink } from "lucide-react"
 import dynamic from "next/dynamic"
+import ChromaGrid from "./ChromaGrid"
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Autoplay } from "swiper/modules"
+import "swiper/css"
+import "swiper/css/autoplay"
 
 // Dynamically import ReactPlayer to avoid SSR issues
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false })
@@ -136,24 +141,37 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
           <Card>
             <CardContent className="p-8">
               <h2 className="text-2xl font-bold mb-4">All Screenshots</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <Swiper
+                loop={true}
+                autoplay={{ delay: 3000, disableOnInteraction: false }}
+                slidesPerView={1}
+                breakpoints={{
+                  768: { slidesPerView: 2 },
+                  1024: { slidesPerView: 3 },
+                }}
+                spaceBetween={20}
+                speed={800}
+                modules={[Autoplay]}
+                className="w-full"
+              >
                 {project.screenshots!.map((screenshot, index) => (
-                  <div
-                    key={index}
-                    className="relative h-40 cursor-pointer overflow-hidden rounded-md"
-                    onClick={() => setCurrentImageIndex(index)}
-                  >
-                    <Image
-                      src={screenshot || "/placeholder.svg"}
-                      alt={`${project.title} screenshot ${index + 1}`}
-                      fill
-                      className={`object-cover transition-all hover:scale-105 ${
-                        currentImageIndex === index ? "ring-2 ring-primary" : ""
-                      }`}
-                    />
-                  </div>
+                  <SwiperSlide key={index}>
+                    <div
+                      className="relative h-40 cursor-pointer overflow-hidden rounded-md"
+                      onClick={() => setCurrentImageIndex(index)}
+                    >
+                      <Image
+                        src={screenshot || "/placeholder.svg"}
+                        alt={`${project.title} screenshot ${index + 1}`}
+                        fill
+                        className={`object-cover transition-all hover:scale-105 ${
+                          currentImageIndex === index ? "ring-2 ring-primary" : ""
+                        }`}
+                      />
+                    </div>
+                  </SwiperSlide>
                 ))}
-              </div>
+              </Swiper>
             </CardContent>
           </Card>
         </motion.div>

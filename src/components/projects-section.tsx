@@ -1,9 +1,9 @@
 "use client"
 
 import { useInView } from "react-intersection-observer"
-import { motion } from "framer-motion"
+import { motion, easeOut } from "framer-motion"
 import { Button } from "../components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Sparkles, Code, Zap } from "lucide-react"
 import Link from "next/link"
 import { ProjectCard } from "../components/project-card"
 import { projects } from "../lib/projects-data"
@@ -19,7 +19,58 @@ export function ProjectsSection() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  }
+
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: easeOut,
+      },
+    },
+  }
+
+  const titleVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: easeOut,
+      },
+    },
+  }
+
+  const descriptionVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        delay: 0.2,
+        ease: easeOut,
+      },
+    },
+  }
+
+  const buttonVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        delay: 0.8,
+        ease: easeOut,
       },
     },
   }
@@ -28,43 +79,162 @@ export function ProjectsSection() {
   const featuredProjects = projects.slice(0, 3)
 
   return (
-    <section ref={ref} id="projects" className="py-16 md:py-24 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section ref={ref} id="projects" className="relative py-20 md:py-32 bg-gradient-to-b from-muted/30 via-background to-muted/20 overflow-hidden">
+      {/* Background Decorations */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-10 left-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-secondary/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-accent/5 rounded-full blur-3xl" />
+        
+        {/* Floating Icons */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="absolute top-20 right-20 opacity-10"
+          animate={{ y: [0, -10, 0], rotate: [0, 5, -5, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A selection of my recent work and personal projects.
-          </p>
+          <Code className="h-8 w-8 text-primary" />
+        </motion.div>
+        <motion.div
+          className="absolute bottom-20 left-20 opacity-10"
+          animate={{ y: [0, 10, 0], rotate: [0, -5, 5, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        >
+          <Zap className="h-6 w-6 text-secondary" />
+        </motion.div>
+        <motion.div
+          className="absolute top-1/3 left-10 opacity-10"
+          animate={{ y: [0, -15, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        >
+          <Sparkles className="h-7 w-7 text-accent" />
+        </motion.div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Section Header */}
+        <motion.div
+          variants={sectionVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="text-center mb-16"
+        >
+          <motion.div
+            variants={titleVariants}
+            className="flex items-center justify-center space-x-3 mb-6"
+          >
+            <div className="w-12 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+              <span className="bg-gradient-to-r from-blue-600 via-pink-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-md">
+                Featured
+              </span>
+              <br />
+              <span className="text-foreground">Projects</span>
+            </h2>
+            <div className="w-12 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
+          </motion.div>
+
+          <motion.div
+            variants={descriptionVariants}
+            className="max-w-3xl mx-auto"
+          >
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+              A curated selection of my recent work showcasing 
+              <span className="bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-md"> innovative solutions</span> and 
+              <span className="bg-gradient-to-r from-purple-500 via-fuchsia-400 to-pink-500 bg-clip-text text-transparent drop-shadow-md"> cutting-edge technologies</span>.
+            </p>
+            
+            {/* Stats */}
+            <motion.div
+              className="flex justify-center items-center space-x-8 mt-8 pt-8 border-t border-border/50"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              {[
+                { label: "Projects", value: projects.length, icon: Code },
+                { label: "Technologies", value: "15+", icon: Zap },
+                { label: "Experience", value: "3+ Years", icon: Sparkles },
+              ].map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  className="text-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                  transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
+                >
+                  <div className="flex items-center justify-center space-x-2 mb-2">
+                    <stat.icon className="h-5 w-5 text-primary" />
+                    <span className="text-2xl font-bold text-foreground">{stat.value}</span>
+                  </div>
+                  <span className="text-sm text-muted-foreground">{stat.label}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
         </motion.div>
 
+        {/* Projects Grid */}
         <motion.div
           variants={container}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
         >
           {featuredProjects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ 
+                delay: 0.3 + index * 0.2, 
+                duration: 0.6,
+                ease: easeOut
+              }}
+              whileHover={{ y: -5 }}
+            >
+              <ProjectCard project={project} index={index} />
+            </motion.div>
           ))}
         </motion.div>
 
+        {/* CTA Section */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
+          variants={buttonVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
           className="text-center"
         >
-          <Button asChild size="lg">
-            <Link href="/projects">
-              View All Projects <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+          <motion.div
+            className="bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 rounded-2xl p-8 border border-border/50 backdrop-blur-sm"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+              Ready to see more?
+            </h3>
+            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+              Explore my complete portfolio of projects, from web applications to mobile solutions and everything in between.
+            </p>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button asChild size="lg" className="group relative overflow-hidden">
+                <Link href="/projects">
+                  <span className="relative z-10 flex items-center">
+                    View All Projects 
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-primary to-secondary"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "0%" }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </Link>
+              </Button>
+            </motion.div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

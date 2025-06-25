@@ -99,7 +99,6 @@ export function AboutSection() {
               </p>
             </Card>
           </motion.div>
-
           <motion.div variants={item}>
             <Card className="text-center p-6 h-full">
               <BookOpen className="w-12 h-12 mx-auto mb-4 text-primary" />
@@ -109,7 +108,6 @@ export function AboutSection() {
               </p>
             </Card>
           </motion.div>
-
           <motion.div variants={item}>
             <Card className="text-center p-6 h-full">
               <Users className="w-12 h-12 mx-auto mb-4 text-primary" />
@@ -119,7 +117,6 @@ export function AboutSection() {
               </p>
             </Card>
           </motion.div>
-
           <motion.div variants={item}>
             <Card className="text-center p-6 h-full">
               <Award className="w-12 h-12 mx-auto mb-4 text-primary" />
