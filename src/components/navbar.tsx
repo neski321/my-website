@@ -129,7 +129,7 @@ export function Navbar() {
                   <Code className="h-6 w-6 text-primary" />
                 </div>
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 via-violet-500 to-pink-500 bg-clip-text text-transparent drop-shadow-md">
+              <span className="text-xl font-bold text-muted-foreground drop-shadow-md">
                 Neskines Otieno
               </span>
             </Link>
@@ -150,7 +150,7 @@ export function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group ${
+                    className={`relative px-4 py-2 rounded-lg text-base font-medium transition-all duration-300 group ${
                       pathname === link.href 
                         ? "text-primary" 
                         : "text-muted-foreground hover:text-primary"
