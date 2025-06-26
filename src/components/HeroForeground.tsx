@@ -6,8 +6,9 @@ import { ArrowRight, Github, Linkedin, Mail, Download, Sparkles, Code, Zap } fro
 import Link from "next/link"
 import { useTheme } from "next-themes"
 import TrueFocus from "./true-focus"
-import DecryptedText from "./decrypted-text"
 import { useIsMobile } from "../hooks/use-mobile"
+import { useRef } from "react"
+import VariableProximity from "./VariableProximity"
 
 const containerVariants = {
   hidden: {},
@@ -60,6 +61,7 @@ export function HeroForeground() {
   const { resolvedTheme } = useTheme()
   const isMobile = useIsMobile()
   const isDark = resolvedTheme === "dark"
+  const containerRef = useRef(null)
 
   return (
     <motion.div
@@ -113,24 +115,20 @@ export function HeroForeground() {
 
       {/* Subtitle */}
       <motion.div variants={fadeUpVariant} className="space-y-2">
-        <motion.h2
-          className="text-2xl md:text-3xl lg:text-4xl font-semibold text-muted-foreground"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+        <div
+          ref={containerRef}
+          style={{ position: "relative" }}
         >
-          <DecryptedText
-            text="Software Developer & Creative Technologist"
-            speed={80}
-            maxIterations={15}
-            sequential={true}
-            revealDirection="start"
-            animateOn="view"
-            className="text-muted-foreground"
-            encryptedClassName="text-primary/60"
-            parentClassName="cursor-pointer"
+          <VariableProximity
+            label={"Software Developer & Creative Technologist"}
+            className={"variable-proximity-demo font-roboto-flex text-3xl md:text-4xl lg:text-5xl font-semibold text-muted-foreground"}
+            fromFontVariationSettings="'wght' 500, 'opsz' 9"
+            toFontVariationSettings="'wght' 1200, 'opsz' 40"
+            containerRef={containerRef}
+            radius={250}
+            falloff="linear"
           />
-        </motion.h2>
+        </div>
         <motion.div
           className="flex items-center justify-center space-x-2 text-primary"
           initial={{ opacity: 0, scale: 0.8 }}
