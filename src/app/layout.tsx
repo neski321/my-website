@@ -8,6 +8,7 @@ import { Footer } from "../components/footer"
 import ThreadsBackground from "../components/ThreadsBackground"
 import ClickSpark from "../components/ClickSpark"
 import { Toaster } from "../components/ui/toaster"
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -123,6 +124,7 @@ export default function RootLayout({
           </div>
         </ThemeProvider>
         <Toaster />
+        <Analytics />
       </body>
     </html>
   )

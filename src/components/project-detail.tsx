@@ -4,6 +4,7 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent } from "../components/ui/card"
 import { Button } from "../components/ui/button"
+import { Dialog, DialogContent, DialogTitle } from "../components/ui/dialog"
 
 import type { ProjectType } from "../lib/projects-data"
 import Image from "next/image"
@@ -16,7 +17,7 @@ import "swiper/css"
 import "swiper/css/autoplay"
 
 // Dynamically import ReactPlayer to avoid SSR issues
-const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false })
+const ReactPlayer = dynamic(() => import("react-player"), { ssr: false })
 
 interface ProjectDetailProps {
   project: ProjectType
@@ -24,7 +25,36 @@ interface ProjectDetailProps {
 
 export function ProjectDetail({ project }: ProjectDetailProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [enlargeImage, setEnlargeImage] = useState<{
+    src: string
+    type: 'screenshots' | 'mobileScreenshots'
+    index: number
+  } | null>(null)
   const hasScreenshots = project.screenshots && project.screenshots.length > 0
+
+  // Helper to get the correct array
+  const getImageArray = (type: 'screenshots' | 'mobileScreenshots') =>
+    type === 'screenshots' ? project.screenshots! : project.mobileScreenshots!
+
+  // Dialog navigation handlers
+  const handleDialogNext = () => {
+    if (!enlargeImage) return
+    const arr = getImageArray(enlargeImage.type)
+    setEnlargeImage({
+      ...enlargeImage,
+      index: (enlargeImage.index + 1) % arr.length,
+      src: arr[(enlargeImage.index + 1) % arr.length],
+    })
+  }
+  const handleDialogPrev = () => {
+    if (!enlargeImage) return
+    const arr = getImageArray(enlargeImage.type)
+    setEnlargeImage({
+      ...enlargeImage,
+      index: (enlargeImage.index - 1 + arr.length) % arr.length,
+      src: arr[(enlargeImage.index - 1 + arr.length) % arr.length],
+    })
+  }
 
   const nextImage = () => {
     if (hasScreenshots) {
@@ -158,7 +188,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                   <SwiperSlide key={index}>
                     <div
                       className="relative h-40 cursor-pointer overflow-hidden rounded-md"
-                      onClick={() => setCurrentImageIndex(index)}
+                      onClick={() => setEnlargeImage({ src: screenshot, type: 'screenshots', index })}
                     >
                       <Image
                         src={screenshot || "/placeholder.svg"}
@@ -176,6 +206,83 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
           </Card>
         </motion.div>
       )}
+
+      {/* Mobile Screenshots Section */}
+      {project.mobileScreenshots && project.mobileScreenshots.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+        >
+          <Card className="mt-8">
+            <CardContent className="p-8">
+              <h2 className="text-2xl font-bold mb-4">Mobile Screenshots</h2>
+              <Swiper
+                loop={true}
+                autoplay={{ delay: 6000, disableOnInteraction: false }}
+                slidesPerView={1}
+                breakpoints={{
+                  768: { slidesPerView: 2 },
+                  1024: { slidesPerView: 3 },
+                }}
+                spaceBetween={20}
+                speed={1400}
+                modules={[Autoplay]}
+                className="w-full"
+              >
+                {project.mobileScreenshots.map((screenshot, index) => (
+                  <SwiperSlide key={index}>
+                    <div className="relative h-40 cursor-pointer overflow-hidden rounded-md"
+                      onClick={() => setEnlargeImage({ src: screenshot, type: 'mobileScreenshots', index })}
+                    >
+                      <Image
+                        src={screenshot || "/placeholder.svg"}
+                        alt={`${project.title} mobile screenshot ${index + 1}`}
+                        fill
+                        className="object-cover transition-all hover:scale-105"
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </CardContent>
+          </Card>
+        </motion.div>
+      )}
+
+      {/* Image Enlargement Dialog */}
+      <Dialog open={!!enlargeImage} onOpenChange={() => setEnlargeImage(null)}>
+        <DialogContent className="max-w-3xl flex flex-col items-center justify-center">
+          <DialogTitle className="sr-only">Enlarged Screenshot</DialogTitle>
+          {enlargeImage && (
+            <div className="relative w-full h-[60vh] flex items-center justify-center">
+              <button
+                className="absolute left-2 top-1/2 z-10 -translate-y-1/2 bg-background/80 rounded-full p-2 hover:bg-background"
+                onClick={handleDialogPrev}
+                aria-label="Previous image"
+                type="button"
+              >
+                <ChevronLeft className="h-8 w-8" />
+              </button>
+              <Image
+                src={enlargeImage.src}
+                alt="Enlarged screenshot"
+                fill
+                className="object-contain rounded-lg"
+                priority
+              />
+              <button
+                className="absolute right-2 top-1/2 z-10 -translate-y-1/2 bg-background/80 rounded-full p-2 hover:bg-background"
+                onClick={handleDialogNext}
+                aria-label="Next image"
+                type="button"
+              >
+                <ChevronRight className="h-8 w-8" />
+              </button>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }
