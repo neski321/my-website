@@ -17,7 +17,7 @@ import "swiper/css"
 import "swiper/css/autoplay"
 
 // Dynamically import ReactPlayer to avoid SSR issues
-const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false })
+const ReactPlayer = dynamic(() => import("react-player"), { ssr: false })
 
 interface ProjectDetailProps {
   project: ProjectType
