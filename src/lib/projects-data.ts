@@ -4,13 +4,14 @@ export interface ProjectType {
   link?: string
   screenshots?: string[]
   VideoDemo?: string
+  mobileScreenshots?: string[]
 }
 
 export const projects: ProjectType[] = [
     {
     title: "PennyPincher by Neski",
     description:
-      "PennyPincher is a full-featured personal finance tracker that empowers users to manage expenses, income, budgets, and savings goals. Built with Firebase and Genkit, it includes charts, AI-powered category suggestions, multi-currency support, and intuitive UX features like data import/export, filtering, and budgeting insights. Developed using Next.js, Tailwind, Firestore, and Recharts, it’s designed for practical, everyday use with mobile responsiveness and visual feedback baked in.",
+  "PennyPincher is an intelligent, cross-platform personal finance tracker designed to make managing money simple, insightful, and seamless. It features a fully native Android app built with Kotlin and Jetpack Compose, and a responsive web dashboard using Next.js and Tailwind CSS both integrated with Firebase for real-time synchronization and secure data handling. Users can easily track income and expenses across multiple currencies, organize transactions with AI-powered category suggestions, manage recurring subscriptions, and gain budgeting insights through intuitive filters and interactive charts. With support for dark and light themes, swipe-to-delete, pull-to-refresh, and modern design principles, PennyPincher offers a smooth and practical experience for everyday financial management.",
     link: "https://pennypincherbyneski.vercel.app/",
     screenshots: [
       "/static/PennyPincher/pp1.png",
@@ -23,6 +24,17 @@ export const projects: ProjectType[] = [
       "/static/PennyPincher/pp8.png",
       "/static/PennyPincher/pp9.png",
       "/static/PennyPincher/pp10.png"
+    ],
+    mobileScreenshots: [
+      "/static/PennyPincher/Android/pp1.png",
+      "/static/PennyPincher/Android/pp2.png",
+      "/static/PennyPincher/Android/pp3.png",
+      "/static/PennyPincher/Android/pp4.png",
+      "/static/PennyPincher/Android/pp5.png",
+      "/static/PennyPincher/Android/pp6.png",
+      "/static/PennyPincher/Android/pp7.png",
+      "/static/PennyPincher/Android/pp8.png",
+      "/static/PennyPincher/Android/pp9.png",
     ],
   },
   
@@ -44,7 +56,7 @@ export const projects: ProjectType[] = [
   {
     title: "Josh in a Dream",
     description:
-      "Josh in a Dream is a third-person platformer game developed in Unreal Engine 5.5. Set in a surreal dreamscape, players control Josh as he explores a single, intricately designed level filled with enemies, traps, and environmental challenges. The main objective is to find two hidden keys placed in different sections of the map, unlock two doors, and reach the gem at the end of the level. Gameplay features include moving platforms, jump stations for enhanced traversal, combat with enemies, health pickups, and strategically placed checkpoints that allow players to respawn and continue their journey. Josh’s character model was sourced from Mixamo and enhanced with custom animation blueprints for smooth movement and interaction. Built using UE5.5’s Nanite and Lumen technologies, the game delivers high-quality visuals, responsive gameplay, and immersive lighting—all powered through Blueprint scripting.",
+      "Josh in a Dream is a third-person platformer game developed in Unreal Engine 5.5. Set in a surreal dreamscape, players control Josh as he explores a single, intricately designed level filled with enemies, traps, and environmental challenges. The main objective is to find two hidden keys placed in different sections of the map, unlock two doors, and reach the gem at the end of the level. Gameplay features include moving platforms, jump stations for enhanced traversal, combat with enemies, health pickups, and strategically placed checkpoints that allow players to respawn and continue their journey. Josh's character model was sourced from Mixamo and enhanced with custom animation blueprints for smooth movement and interaction. Built using UE5.5's Nanite and Lumen technologies, the game delivers high-quality visuals, responsive gameplay, and immersive lighting—all powered through Blueprint scripting.",
     link: "https://github.com/neski321/Josh-In-A-Dream",
     screenshots: [
       "/static/JoshDream/Josh1.png",
