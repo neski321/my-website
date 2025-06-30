@@ -8,7 +8,7 @@ import { Dialog, DialogContent, DialogTitle } from "../components/ui/dialog"
 
 import type { ProjectType } from "../lib/projects-data"
 import Image from "next/image"
-import { ChevronLeft, ChevronRight, Github, ExternalLink } from "lucide-react"
+import { ChevronLeft, ChevronRight, Github, ExternalLink, Download } from "lucide-react"
 import dynamic from "next/dynamic"
 import ChromaGrid from "./ChromaGrid"
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -137,6 +137,13 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                         <ExternalLink className="mr-2 h-4 w-4" /> Visit Project
                       </>
                     )}
+                  </a>
+                </Button>
+              )}
+              {project.androidApkLink && (
+                <Button asChild>
+                  <a href={project.androidApkLink} target="_blank" rel="noopener noreferrer">
+                    <Download className="mr-2 h-4 w-4" /> Download APK
                   </a>
                 </Button>
               )}

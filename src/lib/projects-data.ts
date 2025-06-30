@@ -5,6 +5,7 @@ export interface ProjectType {
   screenshots?: string[]
   VideoDemo?: string
   mobileScreenshots?: string[]
+  androidApkLink?: string
 }
 
 export const projects: ProjectType[] = [
@@ -13,6 +14,7 @@ export const projects: ProjectType[] = [
     description:
   "PennyPincher is an intelligent, cross-platform personal finance tracker designed to make managing money simple, insightful, and seamless. It features a fully native Android app built with Kotlin and Jetpack Compose, and a responsive web dashboard using Next.js and Tailwind CSS both integrated with Firebase for real-time synchronization and secure data handling. Users can easily track income and expenses across multiple currencies, organize transactions with AI-powered category suggestions, manage recurring subscriptions, and gain budgeting insights through intuitive filters and interactive charts. With support for dark and light themes, swipe-to-delete, pull-to-refresh, and modern design principles, PennyPincher offers a smooth and practical experience for everyday financial management.",
     link: "https://pennypincherbyneski.vercel.app/",
+    androidApkLink: "https://drive.google.com/file/d/1MyROEo0Mfr7NQO-CcdIV6-8DPYDzO6Lj/view?usp=sharing",
     screenshots: [
       "/static/PennyPincher/pp1.png",
       "/static/PennyPincher/pp2.png",
