@@ -2,9 +2,7 @@
 
 import { useInView } from "react-intersection-observer"
 import { motion, easeOut } from "framer-motion"
-import { Button } from "../components/ui/button"
-import { ArrowRight, Sparkles, Code, Zap } from "lucide-react"
-import Link from "next/link"
+import { Sparkles, Code, Zap } from "lucide-react"
 import { ProjectCard } from "../components/project-card"
 import { projects } from "../lib/projects-data"
 
@@ -57,19 +55,6 @@ export function ProjectsSection() {
       transition: {
         duration: 0.6,
         delay: 0.2,
-        ease: easeOut,
-      },
-    },
-  }
-
-  const buttonVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        delay: 0.8,
         ease: easeOut,
       },
     },
@@ -178,7 +163,7 @@ export function ProjectsSection() {
           variants={container}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {featuredProjects.map((project, index) => (
             <motion.div
@@ -195,46 +180,6 @@ export function ProjectsSection() {
               <ProjectCard project={project} index={index} />
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* CTA Section */}
-        <motion.div
-          variants={buttonVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="text-center"
-        >
-          <motion.div
-            className="bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 rounded-2xl p-8 border border-border/50 backdrop-blur-sm"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
-          >
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              Ready to see more?
-            </h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Explore my complete portfolio of projects, from web applications to mobile solutions and everything in between.
-            </p>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button asChild size="lg" className="group relative overflow-hidden">
-                <Link href="/projects">
-                  <span className="relative z-10 flex items-center">
-                    View All Projects 
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-primary to-secondary"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "0%" }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </Link>
-              </Button>
-            </motion.div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

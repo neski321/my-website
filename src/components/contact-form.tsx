@@ -45,18 +45,20 @@ export function ContactForm() {
         body: JSON.stringify(formData),
       })
 
+      const data = await res.json()
+
       if (!res.ok) {
-        throw new Error("Failed to send email")
+        throw new Error(data.error || "Failed to send email")
       }
 
       // Show visual success banner
       setShowBanner(true)
       setTimeout(() => setShowBanner(false), 5000)
 
-      // Optional: show toast too
+      // Show toast with appropriate message
       toast({
         title: "✅ Message Sent",
-        description: "Thanks! Your message has been saved and sent.",
+        description: data.message || "Thanks! Your message has been saved and sent.",
         duration: 5000,
       })
 
@@ -68,9 +70,10 @@ export function ContactForm() {
         message: "",
       })
     } catch (error) {
+      console.error("Contact form error:", error)
       toast({
         title: "❌ Error",
-        description: "Something went wrong. Please try again.",
+        description: error instanceof Error ? error.message : "Something went wrong. Please try again.",
         variant: "destructive",
       })
     } finally {
@@ -138,10 +141,17 @@ export function ContactForm() {
         </div>
         <Button 
           type="submit" 
-          className="w-full filter blur-sm cursor-not-allowed opacity-50" 
-          disabled
+          className="w-full" 
+          disabled={isSubmitting}
         >
-          Send Message
+          {isSubmitting ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Sending...
+            </>
+          ) : (
+            "Send Message"
+          )}
         </Button>
       </form>
     </>

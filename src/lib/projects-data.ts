@@ -6,6 +6,7 @@ export interface ProjectType {
   VideoDemo?: string
   mobileScreenshots?: string[]
   androidApkLink?: string
+  inProgress?: boolean
 }
 
 export const projects: ProjectType[] = [
@@ -155,5 +156,24 @@ export const projects: ProjectType[] = [
       "/static/TravelList/Travellist3.png",
     ],
     VideoDemo: "https://vimeo.com/910329944?share=copy",
-  }  
+  },
+  // Projects in Progress
+  {
+    title: "PropertyHub",    
+    description:
+       "A full-stack real estate platform that revolutionizes property discovery and management. Built with React 18, TypeScript, Node.js, Express, PostgreSQL (Neon), and Firebase Authentication. Features include intelligent property search with location-based filtering, multi-image property galleries, user review and rating systems, booking/inquiry management, responsive dashboard with analytics, and modern UI components. The platform supports both property buyers and sellers with features like featured listings, user profiles, and real-time notifications.",
+    inProgress: true,
+    screenshots: [
+      "/static/PropertyHub/Propertyhub1.png",
+    ],
+  },
+  {
+    title: "MindEase - AI Mental Health Tracker",
+    description:
+    "MindEase is a comprehensive mental wellness companion application that helps users track their mood, access personalized interventions, and build healthy mental habits. The app is built using React with TypeScript and Vite for a modern, responsive web experience. It integrates with Firebase for user authentication and PostgreSQL for storing user data including mood entries, interventions, progress tracking, and community interactions. Users can create accounts, track their daily mood with intensity levels, receive AI-powered personalized intervention recommendations, participate in breathing exercises and meditation sessions, engage with a supportive community through anonymous posts, and monitor their wellness progress over time. The app features a beautiful, accessible interface with smooth animations and provides crisis resources for users in need of immediate support.",
+    inProgress: true,
+    screenshots: [
+      "/static/MindEase/Mindease1.png",
+    ],
+  },
 ]

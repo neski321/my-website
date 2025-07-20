@@ -92,6 +92,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 src={
                   project.screenshots && project.screenshots.length > 0
                     ? project.screenshots[0]
+                    : project.inProgress
+                    ? "https://img.freepik.com/free-vector/abstract-orange-geometric-background_1319-2422.jpg"
                     : "https://img.freepik.com/free-vector/matrix-style-binary-code-digital-falling-numbers-blue-background_1017-37387.jpg"
                 }
                 alt={project.title}
