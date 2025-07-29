@@ -75,15 +75,16 @@ export const projects: ProjectType[] = [
   },
   {
     title: "E-commerce Store",
-    description:
-      "The E-commerce Store is a full-stack web application that allows users to browse, search, and manage products while providing role-based access for administrative functions. The frontend is developed using React to deliver an intuitive user interface, and the backend is powered by Django. Firebase is integrated for user authentication and role management, while PostgreSQL Cloud handles the product backlog and ensures efficient data storage. The app is deployed on Render for a smooth and scalable hosting solution. Users can explore a catalog of products, manage their accounts, and administrators can oversee product inventory and updates.",
-    link: "https://e-commerce-neski.onrender.com",
+    description: "A comprehensive full-stack e-commerce platform featuring a modern, responsive design with advanced user experience enhancements. Built with React frontend and Django backend, the application now includes sophisticated product management, real-time cart functionality, and seamless payment processing with Stripe integration. The platform features role-based access control with Firebase authentication, PostgreSQL Cloud for robust data storage, and is deployed on Render for optimal performance. Key features include advanced product filtering and search capabilities, real-time inventory management, secure checkout with custom error handling, and a beautifully redesigned checkout experience with progress indicators and modern UI components. The application supports user favorites, order tracking, and comprehensive admin controls for product management. Enhanced with proper pagination, optimized API endpoints, and modern dialog components for improved user interaction.",
+    link: "https://e-commerce-by-neski.up.railway.app",
     screenshots: [
       "/static/Ecommerce/Ecommerce1.png",
       "/static/Ecommerce/Ecommerce2.png",
       "/static/Ecommerce/Ecommerce3.png",
       "/static/Ecommerce/Ecommerce4.png",
       "/static/Ecommerce/Ecommerce5.png",
+      "/static/Ecommerce/Ecommerce6.png",
+      "/static/Ecommerce/Ecommerce7.png",
     ],
   },
   {
