@@ -5,8 +5,9 @@ import { notFound } from "next/navigation"
 export const dynamic = "force-dynamic" // Enforce dynamic SSR
 
 export default async function ProjectPage({ params }: { params: { id: string } }) {
-  const projectIndex = Number(params.id)
-  const project = projects[projectIndex]
+  const { id } = await params;
+  const projectIndex = Number(id);
+  const project = projects[projectIndex];
 
   if (!project) {
     notFound()

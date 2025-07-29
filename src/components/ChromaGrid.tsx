@@ -146,7 +146,7 @@ const ChromaGrid = ({
           }
         >
           <div
-            className="absolute inset-0 pointer-events-none transition-opacity duration-500 z-20 opacity-0 group-hover:opacity-100"
+            className="absolute inset-0 pointer-events-none transition-opacity transition-duration-[250ms] z-20 opacity-0 group-hover:opacity-100"
             style={{
               background:
                 "radial-gradient(circle at var(--mouse-x) var(--mouse-y), var(--spotlight-color), transparent 70%)",
@@ -192,7 +192,7 @@ const ChromaGrid = ({
           />
           <div
             ref={fadeRef}
-            className="absolute inset-0 pointer-events-none transition-opacity duration-[250ms] z-40"
+            className="absolute inset-0 pointer-events-none transition-opacity transition-duration-[250ms] z-40"
             style={{
               backdropFilter: "grayscale(1) brightness(0.78)",
               WebkitBackdropFilter: "grayscale(1) brightness(0.78)",
