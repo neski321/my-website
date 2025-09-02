@@ -201,4 +201,15 @@ export const projects: ProjectType[] = [
     collaboration: true,
     techStack: ["HTML5", "CSS3", "JavaScript", "React", "Node.js", "Express", "MongoDB", "Bootstrap", "Git", "Responsive Design"],
   },
+  {
+    title: "ChantnChroma",
+    description:
+      "Chantnchroma emerged from the need to create a dedicated space where tattoo artists and template designers could showcase their work while connecting with potential clients and collaborators. The platform needed to handle high-quality image uploads, provide intuitive browsing experiences, and foster community engagement through social features. The main challenge was balancing visual appeal with performance, especially when dealing with large image galleries. Built with React and Next.js for optimal performance and SEO, the platform utilizes Google CDN for fast image delivery worldwide. The submission system allows artists to upload their work with detailed descriptions and tags for easy discovery. The community features include commenting, liking, and direct messaging between artists and clients. The responsive design ensures the gallery looks stunning on all devices, while the markdown support enables rich content creation for artist portfolios and project descriptions.",
+    link: "https://www.chantnchroma.art/",
+    screenshots: [
+      "/static/Chantnchroma/cnc1.png",
+    ],
+    collaboration: true,
+    techStack: ["React", "Next.js", "TypeScript", "Google CDN", "Three.js"],
+  },
 ]
