@@ -5,6 +5,7 @@ import { motion, easeOut } from "framer-motion"
 import { HeroSection } from "../components/hero-section"
 import { AboutSection } from "../components/about-section"
 import { ProjectsSection } from "../components/projects-section"
+import { CollaborationSection } from "../components/collaboration-section"
 import { ProjectsInProgressSection } from "../components/projects-in-progress-section"
 import { ContactSection } from "../components/contact-section"
 
@@ -67,6 +68,15 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background to-transparent" />
         <ProjectsSection />
+      </motion.div>
+
+      {/* Collaboration Section */}
+      <motion.div 
+        variants={sectionVariants}
+        className="relative"
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/5 to-transparent" />
+        <CollaborationSection />
       </motion.div>
 
       {/* Projects In Progress Section */}
