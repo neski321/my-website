@@ -7,6 +7,8 @@ export interface ProjectType {
   mobileScreenshots?: string[]
   androidApkLink?: string
   inProgress?: boolean
+  collaboration?: boolean
+  techStack?: string[]
 }
 
 export const projects: ProjectType[] = [
@@ -39,6 +41,7 @@ export const projects: ProjectType[] = [
       "/static/PennyPincher/Android/pp8.png",
       "/static/PennyPincher/Android/pp9.png",
     ],
+    techStack: ["Kotlin", "Jetpack Compose", "Next.js", "Tailwind CSS", "Firebase", "TypeScript", "React", "Android Studio", "Vercel", "Material Design"],
   },
   
   {
@@ -54,6 +57,8 @@ export const projects: ProjectType[] = [
       "/static/CustomerSegmentationApp/csa5.png",
       "/static/CustomerSegmentationApp/csa6.png",
     ],
+    collaboration: true,
+    techStack: ["Python", "Streamlit", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "Plotly", "KMeans Clustering", "RFM Analysis"],
   },
 
   {
@@ -71,7 +76,8 @@ export const projects: ProjectType[] = [
       "/static/JoshDream/Josh7.png",
       "/static/JoshDream/Josh8.png",
     ],
-    VideoDemo: "https://vimeo.com/1086211574?share=copy#t=0"
+    VideoDemo: "https://vimeo.com/1086211574?share=copy#t=0",
+    techStack: ["Unreal Engine 5.5", "Blueprint Scripting", "C++", "Nanite", "Lumen", "Mixamo", "3D Modeling", "Game Design", "Animation", "Level Design"],
   },
   {
     title: "E-commerce Store",
@@ -86,6 +92,7 @@ export const projects: ProjectType[] = [
       "/static/Ecommerce/Ecommerce6.png",
       "/static/Ecommerce/Ecommerce7.png",
     ],
+    techStack: ["React", "Django", "Python", "PostgreSQL", "Firebase", "Stripe", "JavaScript", "CSS3", "HTML5", "Render", "Railway"],
   },
   {
     title: "Online Art gallery",
@@ -126,6 +133,7 @@ export const projects: ProjectType[] = [
       "/static/MessagesBoard/social_app2.png",
       "/static/MessagesBoard/social_app3.png",
     ],
+    collaboration: true,
   },
   {
     title: "Avoiding game",
@@ -167,6 +175,7 @@ export const projects: ProjectType[] = [
     screenshots: [
       "/static/PropertyHub/Propertyhub1.png",
     ],
+    techStack: ["React 18", "TypeScript", "Node.js", "Express", "PostgreSQL", "Neon", "Firebase", "JavaScript", "CSS3", "HTML5"],
   },
   {
     title: "MindEase - AI Mental Health Tracker",
@@ -176,5 +185,20 @@ export const projects: ProjectType[] = [
     screenshots: [
       "/static/MindEase/Mindease1.png",
     ],
+    techStack: ["React", "TypeScript", "Vite", "Firebase", "PostgreSQL", "AI/ML", "JavaScript", "CSS3", "HTML5", "Mental Health APIs"],
+  },
+  {
+    title: "DesignUrWeb",
+    description:
+      "DesignUrWeb is a collaborative web development service company founded by a group of three developers to help small businesses establish their online presence. The company offers comprehensive website development services including Basic, Advanced, Premium, and Wedding website packages. The platform features a modern, responsive design with service showcases, client testimonials, and template galleries. Built with a focus on helping small businesses grow their digital footprint, DesignUrWeb provides custom solutions ranging from restaurant websites to e-commerce platforms, fitness sites, and blog templates. The collaborative nature of this project demonstrates effective teamwork in creating a business that serves the community's web development needs.",
+    link: "https://designurweb.com/",
+    screenshots: [
+      "/static/DesignUrWeb/DUW1.png",
+      "/static/DesignUrWeb/DUW2.png",
+      "/static/DesignUrWeb/DUW3.png",
+      "/static/DesignUrWeb/DUW4.png",
+    ],
+    collaboration: true,
+    techStack: ["HTML5", "CSS3", "JavaScript", "React", "Node.js", "Express", "MongoDB", "Bootstrap", "Git", "Responsive Design"],
   },
 ]

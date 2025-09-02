@@ -99,6 +99,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 alt={project.title}
                 fill
                 className="object-cover transition-transform duration-300"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority={project.title === "DesignUrWeb"}
+                onError={(e) => {
+                  console.error(`Failed to load image for ${project.title}:`, e);
+                }}
+                onLoad={() => {
+                  console.log(`Successfully loaded image for ${project.title}`);
+                }}
               />
               
               {/* Image Overlay */}

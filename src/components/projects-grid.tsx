@@ -2,13 +2,14 @@
 
 import { motion } from "framer-motion"
 import { ProjectCard } from "../components/project-card"
-import type { ProjectType } from "@/lib/projects-data"
+import type { ProjectType } from "@/src/lib/projects-data"
+import { projects } from "@/src/lib/projects-data"
 
 interface ProjectsGridProps {
   projects: ProjectType[]
 }
 
-export function ProjectsGrid({ projects }: ProjectsGridProps) {
+export function ProjectsGrid({ projects: filteredProjects }: ProjectsGridProps) {
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -19,6 +20,11 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
     },
   }
 
+  // Function to find the original index of a project in the main projects array
+  const getOriginalIndex = (project: ProjectType) => {
+    return projects.findIndex(p => p.title === project.title)
+  }
+
   return (
     <motion.div
       variants={container}
@@ -26,9 +32,16 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
       animate="show"
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
     >
-      {projects.map((project, index) => (
-        <ProjectCard key={index} project={project} index={index} />
-      ))}
+      {filteredProjects.map((project, index) => {
+        const originalIndex = getOriginalIndex(project)
+        return (
+          <ProjectCard 
+            key={`${project.title}-${originalIndex}`} 
+            project={project} 
+            index={originalIndex} 
+          />
+        )
+      })}
     </motion.div>
   )
 }
