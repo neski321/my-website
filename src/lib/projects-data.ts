@@ -43,6 +43,33 @@ export const projects: ProjectType[] = [
     ],
     techStack: ["Kotlin", "Jetpack Compose", "Next.js", "Tailwind CSS", "Firebase", "TypeScript", "React", "Android Studio", "Vercel", "Material Design"],
   },
+
+  {
+    title: "DesignUrWeb",
+    description:
+      "DesignUrWeb is a collaborative web development service company founded by a group of three developers to help small businesses establish their online presence. The company offers comprehensive website development services including Basic, Advanced, Premium, and Wedding website packages. The platform features a modern, responsive design with service showcases, client testimonials, and template galleries. Built with a focus on helping small businesses grow their digital footprint, DesignUrWeb provides custom solutions ranging from restaurant websites to e-commerce platforms, fitness sites, and blog templates. The collaborative nature of this project demonstrates effective teamwork in creating a business that serves the community's web development needs.",
+    link: "https://designurweb.com/",
+    screenshots: [
+      "/static/DesignUrWeb/DUW1.png",
+      "/static/DesignUrWeb/DUW2.png",
+      "/static/DesignUrWeb/DUW3.png",
+      "/static/DesignUrWeb/DUW4.png",
+    ],
+    collaboration: true,
+    techStack: ["HTML5", "CSS3", "JavaScript", "React", "Node.js", "Express", "MongoDB", "Bootstrap", "Git", "Responsive Design"],
+  },
+
+  {
+    title: "ChantnChroma",
+    description:
+      "Chantnchroma emerged from the need to create a dedicated space where tattoo artists and template designers could showcase their work while connecting with potential clients and collaborators. The platform needed to handle high-quality image uploads, provide intuitive browsing experiences, and foster community engagement through social features. The main challenge was balancing visual appeal with performance, especially when dealing with large image galleries. Built with React and Next.js for optimal performance and SEO, the platform utilizes Google CDN for fast image delivery worldwide. The submission system allows artists to upload their work with detailed descriptions and tags for easy discovery. The community features include commenting, liking, and direct messaging between artists and clients. The responsive design ensures the gallery looks stunning on all devices, while the markdown support enables rich content creation for artist portfolios and project descriptions.",
+    link: "https://www.chantnchroma.art/",
+    screenshots: [
+      "/static/Chantnchroma/cnc1.png",
+    ],
+    collaboration: true,
+    techStack: ["React", "Next.js", "TypeScript", "Google CDN", "Three.js"],
+  },
   
   {
     title: "Customer Segmentation App",
@@ -186,30 +213,5 @@ export const projects: ProjectType[] = [
       "/static/MindEase/Mindease1.png",
     ],
     techStack: ["React", "TypeScript", "Vite", "Firebase", "PostgreSQL", "AI/ML", "JavaScript", "CSS3", "HTML5", "Mental Health APIs"],
-  },
-  {
-    title: "DesignUrWeb",
-    description:
-      "DesignUrWeb is a collaborative web development service company founded by a group of three developers to help small businesses establish their online presence. The company offers comprehensive website development services including Basic, Advanced, Premium, and Wedding website packages. The platform features a modern, responsive design with service showcases, client testimonials, and template galleries. Built with a focus on helping small businesses grow their digital footprint, DesignUrWeb provides custom solutions ranging from restaurant websites to e-commerce platforms, fitness sites, and blog templates. The collaborative nature of this project demonstrates effective teamwork in creating a business that serves the community's web development needs.",
-    link: "https://designurweb.com/",
-    screenshots: [
-      "/static/DesignUrWeb/DUW1.png",
-      "/static/DesignUrWeb/DUW2.png",
-      "/static/DesignUrWeb/DUW3.png",
-      "/static/DesignUrWeb/DUW4.png",
-    ],
-    collaboration: true,
-    techStack: ["HTML5", "CSS3", "JavaScript", "React", "Node.js", "Express", "MongoDB", "Bootstrap", "Git", "Responsive Design"],
-  },
-  {
-    title: "ChantnChroma",
-    description:
-      "Chantnchroma emerged from the need to create a dedicated space where tattoo artists and template designers could showcase their work while connecting with potential clients and collaborators. The platform needed to handle high-quality image uploads, provide intuitive browsing experiences, and foster community engagement through social features. The main challenge was balancing visual appeal with performance, especially when dealing with large image galleries. Built with React and Next.js for optimal performance and SEO, the platform utilizes Google CDN for fast image delivery worldwide. The submission system allows artists to upload their work with detailed descriptions and tags for easy discovery. The community features include commenting, liking, and direct messaging between artists and clients. The responsive design ensures the gallery looks stunning on all devices, while the markdown support enables rich content creation for artist portfolios and project descriptions.",
-    link: "https://www.chantnchroma.art/",
-    screenshots: [
-      "/static/Chantnchroma/cnc1.png",
-    ],
-    collaboration: true,
-    techStack: ["React", "Next.js", "TypeScript", "Google CDN", "Three.js"],
   },
 ]
