@@ -75,8 +75,8 @@ export function CollaborationSection() {
     },
   }
 
-  // Filter projects that are collaborations
-  const collaborationProjects = projects.filter(project => project.collaboration)
+  // Filter projects that are collaborations and limit to 3
+  const collaborationProjects = projects.filter(project => project.collaboration).slice(0, 3)
 
   return (
     <section ref={ref} id="collaborations" className="relative py-20 md:py-32 bg-gradient-to-b from-background via-muted/20 to-background overflow-hidden">
