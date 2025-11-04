@@ -122,6 +122,38 @@ export const projects: ProjectType[] = [
     techStack: ["React", "Django", "Python", "PostgreSQL", "Firebase", "Stripe", "JavaScript", "CSS3", "HTML5", "Render", "Railway"],
   },
   {
+    title: "NeskiPDFs",
+    
+    description: "NeskiPDFs is a comprehensive web-based PDF editor and manipulation tool that provides users with powerful document editing capabilities directly in their browser. The platform offers a complete suite of PDF operations including merging multiple documents, text editing with server-side text extraction and replacement, page reordering through intuitive drag-and-drop interfaces, page rotation and deletion, and seamless document management. Built with a modern full-stack architecture, NeskiPDFs features a responsive React frontend with real-time PDF preview using PDF.js, and a robust Laravel backend that handles complex PDF manipulation operations including text extraction from scanned documents, text replacement with formatting options (fonts, colors, alignment), and page-level operations. The application features a clean, intuitive interface with visual thumbnails, drag-and-drop functionality, and a comprehensive editing workflow. Designed for both technical and non-technical users, NeskiPDFs eliminates the need for desktop software by providing professional-grade PDF editing capabilities in a browser-based application with deployment-ready configuration for cloud platforms.",
+    
+    link: "https://github.com/yourusername/NeskiPDFs", // Update with actual link
+    
+    screenshots: [    ],
+    
+    collaboration: false, // Set to true if this is a collaborative project
+    
+    techStack: [
+      "React 18",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Radix UI",
+      "react-pdf",
+      "PDF.js",
+      "Laravel",
+      "PHP 8.1",
+      "FPDI/FPDF",
+      "smalot/pdfparser",
+      "Node.js",
+      "Nixpacks",
+      "Railway",
+      "Git",
+      "Responsive Design",
+      "RESTful API"
+    ],
+  },
+  {
     title: "Online Art gallery",
     description:
       "A web-based online art gallery database using ReactJS and mongoDB for user authentication and data management.",
