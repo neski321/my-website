@@ -126,9 +126,14 @@ export const projects: ProjectType[] = [
     
     description: "NeskiPDFs is a comprehensive web-based PDF editor and manipulation tool that provides users with powerful document editing capabilities directly in their browser. The platform offers a complete suite of PDF operations including merging multiple documents, text editing with server-side text extraction and replacement, page reordering through intuitive drag-and-drop interfaces, page rotation and deletion, and seamless document management. Built with a modern full-stack architecture, NeskiPDFs features a responsive React frontend with real-time PDF preview using PDF.js, and a robust Laravel backend that handles complex PDF manipulation operations including text extraction from scanned documents, text replacement with formatting options (fonts, colors, alignment), and page-level operations. The application features a clean, intuitive interface with visual thumbnails, drag-and-drop functionality, and a comprehensive editing workflow. Designed for both technical and non-technical users, NeskiPDFs eliminates the need for desktop software by providing professional-grade PDF editing capabilities in a browser-based application with deployment-ready configuration for cloud platforms.",
     
-    link: "https://github.com/yourusername/NeskiPDFs", // Update with actual link
+    link: "https://neskipdfs.up.railway.app/", // Update with actual link
     
-    screenshots: [    ],
+    screenshots: [  
+      "/static/NeskiPDFs/NeskiPDFs1.png",
+      "/static/NeskiPDFs/NeskiPDFs2.png",
+      "/static/NeskiPDFs/NeskiPDFs3.png",
+      "/static/NeskiPDFs/NeskiPDFs4.png",
+      ],
     
     collaboration: false, // Set to true if this is a collaborative project
     
