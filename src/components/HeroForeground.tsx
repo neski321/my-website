@@ -194,8 +194,8 @@ export function HeroForeground() {
             whileTap={{ scale: 0.95 }}
           >
             <Button asChild size="lg" variant="outline">
-              <Link href="/resume">
-                View My Resume
+              <Link href="/contact">
+                Request Resume
               </Link>
             </Button>
           </motion.div>

@@ -30,7 +30,6 @@ export function Navbar() {
     { href: "/", label: "Home", icon: Sparkles },
     { href: "/about", label: "About", icon: Code },
     { href: "/projects", label: "Projects", icon: Code },
-    { href: "/resume", label: "Resume", icon: Code },
     { href: "/contact", label: "Contact", icon: Code },
   ]
 
