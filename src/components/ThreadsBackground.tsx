@@ -13,12 +13,19 @@ export default function ThreadsBackground() {
     <div
       style={{
         position: "fixed",
-        inset: 0,
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
         width: "100vw",
         height: "100vh",
         minWidth: "100vw",
         minHeight: "100vh",
-        zIndex: -5
+        maxWidth: "100vw",
+        zIndex: -5,
+        margin: 0,
+        padding: 0,
+        overflow: "visible"
       }}
     >
       <Threads amplitude={1} distance={0} enableMouseInteraction={true} />

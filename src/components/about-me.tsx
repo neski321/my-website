@@ -1,8 +1,11 @@
 "use client"
 
+import { useRef } from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent } from "../components/ui/card"
 import { Badge } from "../components/ui/badge"
+import Image from "next/image"
+import Orb from "./orb"
 import { 
   BookOpen, 
   Code, 
@@ -26,6 +29,8 @@ import {
 } from "lucide-react"
 
 export function AboutMe() {
+  const imageContainerRef = useRef<HTMLDivElement>(null)
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -45,7 +50,7 @@ export function AboutMe() {
     {
       title: "Programming Languages",
       icon: <Terminal className="w-6 h-6" />,
-      skills: ["Python", "C/C++", "JavaScript", "C#", "Kotlin", "Swift"],
+      skills: ["Python", "C/C++", "JavaScript", "C#", "Kotlin", "Swift", "PHP"],
       color: "bg-blue-500/10 text-blue-400 border-blue-200"
     },
     {
@@ -93,7 +98,7 @@ export function AboutMe() {
     {
       title: "Technologies & Tools",
       icon: <Cpu className="w-6 h-6" />,
-      skills: ["Power BI", "SharePoint", "Visual Studio", "Android Studio"],
+      skills: ["Microsoft Office Suite", "Power BI", "SharePoint", "Visual Studio", "Android Studio"],
       color: "bg-cyan-500/10 text-cyan-500 border-cyan-200"
     }
   ]
@@ -122,38 +127,79 @@ export function AboutMe() {
   ]
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 pt-24 pb-8">
       {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-center mb-16"
+        className="mb-4"
       >
-        <div className="relative">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+          {/* Image Section - Left with Orb */}
           <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex justify-center md:justify-start md:col-span-4 relative"
           >
-            <Code className="w-16 h-16 text-primary" />
+            <div 
+              ref={imageContainerRef}
+              style={{ width: '100%', maxWidth: '400px', height: '400px', position: 'relative', cursor: 'pointer' }}
+            >
+              {/* Orb Background */}
+              <div style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, pointerEvents: 'none' }}>
+                <Orb
+                  hoverIntensity={2}
+                  rotateOnHover={true}
+                  hue={0}
+                  forceHoverState={false}
+                  radius={0.8}
+                  containerRef={imageContainerRef}
+                />
+              </div>
+              {/* Circular Image - Centered within Orb */}
+              <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 10, width: '70%', maxWidth: '280px', aspectRatio: '1', pointerEvents: 'none' }}>
+                <div className="relative w-full h-full rounded-full overflow-hidden shadow-2xl border-4 border-primary/20 dark:border-primary/30 bg-gradient-to-br from-primary/10 to-primary/5">
+                  <Image
+                    src="/static/about/myimage.jpg"
+                    alt="Neskines Otieno"
+                    fill
+                    className="object-cover object-top"
+                    priority
+                    sizes="(max-width: 768px) 200px, 280px"
+                  />
+                  {/* Gradient overlay for better visual effect */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent" />
+                </div>
+              </div>
+            </div>
           </motion.div>
-          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent mb-4">
-            Neskines Otieno
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground dark:text-muted-foreground/90 mb-6">
-            Software Developer & Problem Solver
-          </p>
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
-            <Badge variant="secondary" className="px-4 py-2 text-sm">
-              <Globe className="w-4 h-4 mr-2" />
-              Fluent in English & Swahili
-            </Badge>
-            <Badge variant="secondary" className="px-4 py-2 text-sm">
-              <Award className="w-4 h-4 mr-2" />
-              Seneca College Student
-            </Badge>
+
+          {/* Text Content - Right */}
+          <div className="md:col-span-8 text-center md:text-left md:pl-8 lg:pl-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent mb-4">
+                Neskines Otieno
+              </h1>
+              <p className="text-xl md:text-2xl text-muted-foreground dark:text-muted-foreground/90 mb-6">
+                Software Developer & Problem Solver
+              </p>
+              <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-8">
+                <Badge variant="secondary" className="px-4 py-2 text-sm">
+                  <Globe className="w-4 h-4 mr-2" />
+                  Fluent in English & Swahili
+                </Badge>
+                <Badge variant="secondary" className="px-4 py-2 text-sm">
+                  <Award className="w-4 h-4 mr-2" />
+                  Seneca College Student
+                </Badge>
+              </div>
+            </motion.div>
           </div>
         </div>
       </motion.div>

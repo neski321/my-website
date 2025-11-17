@@ -100,13 +100,14 @@ export default function RootLayout({
         <meta name="theme-color" content="#000000" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased`} style={{ margin: 0, padding: 0, overflowX: 'hidden' }}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          {/* Threads background - outside of flex container to avoid constraints */}
+          <ThreadsBackground />
+          
           <div className="flex min-h-screen flex-col relative">
             {/* Animated Background Elements */}
-            <div className="fixed inset-0 -z-10 overflow-hidden">
-              {/* Threads background for all except home */}
-              <ThreadsBackground />
+            <div className="fixed inset-0 -z-10" style={{ overflow: 'visible', width: '100vw', left: 0, right: 0 }}>
               <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20" />
               <div className="absolute top-0 left-0 w-full h-full opacity-30">
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
@@ -116,7 +117,7 @@ export default function RootLayout({
             </div>
             
             <Navbar />
-            <main className="flex-1 relative">
+            <main className="flex-1 relative" style={{ overflowX: 'hidden' }}>
               <ClickSpark
                 sparkColor="#fff"
                 sparkSize={10}

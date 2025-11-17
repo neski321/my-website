@@ -152,9 +152,13 @@ const Threads: React.FC<ThreadsProps> = ({
     gl.canvas.style.position = "absolute";
     gl.canvas.style.top = "0";
     gl.canvas.style.left = "0";
-    gl.canvas.style.width = "100%";
-    gl.canvas.style.height = "100%";
+    gl.canvas.style.width = "100vw";
+    gl.canvas.style.height = "100vh";
+    gl.canvas.style.minWidth = "100vw";
+    gl.canvas.style.minHeight = "100vh";
     gl.canvas.style.display = "block";
+    gl.canvas.style.margin = "0";
+    gl.canvas.style.padding = "0";
 
     const geometry = new Triangle(gl);
     const program = new Program(gl, {
@@ -179,11 +183,36 @@ const Threads: React.FC<ThreadsProps> = ({
     const mesh = new Mesh(gl, { geometry, program });
 
     function resize() {
-      const { clientWidth, clientHeight } = container;
-      renderer.setSize(clientWidth, clientHeight);
-      program.uniforms.iResolution.value.r = clientWidth;
-      program.uniforms.iResolution.value.g = clientHeight;
-      program.uniforms.iResolution.value.b = clientWidth / clientHeight;
+      // Use window dimensions to ensure full viewport coverage
+      const width = window.innerWidth || document.documentElement.clientWidth;
+      const height = window.innerHeight || document.documentElement.clientHeight;
+      const dpr = window.devicePixelRatio || 1;
+      
+      // Set renderer size with device pixel ratio for crisp rendering
+      renderer.setSize(width * dpr, height * dpr);
+      program.uniforms.iResolution.value.r = width * dpr;
+      program.uniforms.iResolution.value.g = height * dpr;
+      program.uniforms.iResolution.value.b = (width * dpr) / (height * dpr);
+      
+      // Ensure container and canvas span full viewport
+      container.style.width = `${width}px`;
+      container.style.height = `${height}px`;
+      container.style.minWidth = `${width}px`;
+      container.style.minHeight = `${height}px`;
+      container.style.left = "0";
+      container.style.right = "0";
+      container.style.margin = "0";
+      container.style.padding = "0";
+      
+      gl.canvas.style.width = `${width}px`;
+      gl.canvas.style.height = `${height}px`;
+      gl.canvas.style.minWidth = `${width}px`;
+      gl.canvas.style.minHeight = `${height}px`;
+      gl.canvas.style.position = "absolute";
+      gl.canvas.style.top = "0";
+      gl.canvas.style.left = "0";
+      gl.canvas.style.margin = "0";
+      gl.canvas.style.padding = "0";
     }
     window.addEventListener("resize", resize);
     resize();
@@ -244,7 +273,23 @@ const Threads: React.FC<ThreadsProps> = ({
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 w-screen h-screen z-[-5]"
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        width: "100vw",
+        height: "100vh",
+        minWidth: "100vw",
+        minHeight: "100vh",
+        maxWidth: "100vw",
+        zIndex: -5,
+        margin: 0,
+        padding: 0,
+        overflow: "visible",
+        boxSizing: "border-box"
+      }}
       {...rest}
     />
   );
