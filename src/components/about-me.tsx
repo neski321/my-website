@@ -162,7 +162,7 @@ export function AboutMe() {
               <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 10, width: '70%', maxWidth: '280px', aspectRatio: '1', pointerEvents: 'none' }}>
                 <div className="relative w-full h-full rounded-full overflow-hidden shadow-2xl border-4 border-primary/20 dark:border-primary/30 bg-gradient-to-br from-primary/10 to-primary/5">
                   <Image
-                    src="/static/about/myimage.jpg"
+                    src="/static/About/myimage.jpg"
                     alt="Neskines Otieno"
                     fill
                     className="object-cover object-top"
