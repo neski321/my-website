@@ -13,10 +13,8 @@ export default function ThreadsBackground() {
     <div
       style={{
         position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
+        top: "0px",
+        left: "0px",
         width: "100vw",
         height: "100vh",
         minWidth: "100vw",
@@ -25,7 +23,10 @@ export default function ThreadsBackground() {
         zIndex: -5,
         margin: 0,
         padding: 0,
-        overflow: "visible"
+        border: "none",
+        outline: "none",
+        overflow: "visible",
+        transform: "translate3d(0, 0, 0)"
       }}
     >
       <Threads amplitude={1} distance={0} enableMouseInteraction={true} />
