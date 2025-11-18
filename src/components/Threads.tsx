@@ -149,16 +149,15 @@ const Threads: React.FC<ThreadsProps> = ({
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
     container.appendChild(gl.canvas);
+    // Set initial canvas styles
     gl.canvas.style.position = "absolute";
     gl.canvas.style.top = "0";
     gl.canvas.style.left = "0";
-    gl.canvas.style.width = "100vw";
-    gl.canvas.style.height = "100vh";
-    gl.canvas.style.minWidth = "100vw";
-    gl.canvas.style.minHeight = "100vh";
     gl.canvas.style.display = "block";
     gl.canvas.style.margin = "0";
     gl.canvas.style.padding = "0";
+    gl.canvas.style.transform = "translate(0, 0)";
+    gl.canvas.style.zIndex = "0";
 
     const geometry = new Triangle(gl);
     const program = new Program(gl, {
@@ -194,25 +193,41 @@ const Threads: React.FC<ThreadsProps> = ({
       program.uniforms.iResolution.value.g = height * dpr;
       program.uniforms.iResolution.value.b = (width * dpr) / (height * dpr);
       
-      // Ensure container and canvas span full viewport
+      // Force container to viewport origin (0,0) and full width
+      container.style.position = "fixed";
+      container.style.top = "0px";
+      container.style.left = "0px";
+      container.style.right = "auto";
+      container.style.bottom = "auto";
       container.style.width = `${width}px`;
       container.style.height = `${height}px`;
       container.style.minWidth = `${width}px`;
       container.style.minHeight = `${height}px`;
-      container.style.left = "0";
-      container.style.right = "0";
+      container.style.maxWidth = `${width}px`;
       container.style.margin = "0";
       container.style.padding = "0";
+      container.style.border = "none";
+      container.style.outline = "none";
+      container.style.transform = "translate3d(0, 0, 0)";
+      container.style.zIndex = "-5";
       
+      // Canvas should fill container from origin (0,0) - no offset
+      gl.canvas.style.position = "absolute";
+      gl.canvas.style.top = "0px";
+      gl.canvas.style.left = "0px";
+      gl.canvas.style.right = "auto";
+      gl.canvas.style.bottom = "auto";
       gl.canvas.style.width = `${width}px`;
       gl.canvas.style.height = `${height}px`;
       gl.canvas.style.minWidth = `${width}px`;
       gl.canvas.style.minHeight = `${height}px`;
-      gl.canvas.style.position = "absolute";
-      gl.canvas.style.top = "0";
-      gl.canvas.style.left = "0";
+      gl.canvas.style.maxWidth = `${width}px`;
       gl.canvas.style.margin = "0";
       gl.canvas.style.padding = "0";
+      gl.canvas.style.border = "none";
+      gl.canvas.style.outline = "none";
+      gl.canvas.style.transform = "translate3d(0, 0, 0)";
+      gl.canvas.style.zIndex = "0";
     }
     window.addEventListener("resize", resize);
     resize();
@@ -275,10 +290,10 @@ const Threads: React.FC<ThreadsProps> = ({
       ref={containerRef}
       style={{
         position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
+        top: "0px",
+        left: "0px",
+        right: "auto",
+        bottom: "auto",
         width: "100vw",
         height: "100vh",
         minWidth: "100vw",
@@ -287,8 +302,11 @@ const Threads: React.FC<ThreadsProps> = ({
         zIndex: -5,
         margin: 0,
         padding: 0,
+        border: "none",
+        outline: "none",
         overflow: "visible",
-        boxSizing: "border-box"
+        boxSizing: "border-box",
+        transform: "translate3d(0, 0, 0)"
       }}
       {...rest}
     />

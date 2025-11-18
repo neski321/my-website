@@ -200,8 +200,8 @@ export default function ContactPage() {
                 
                 <CardContent className="p-8 relative z-10 flex flex-col h-full">
                   <div className="flex items-center space-x-3 mb-8">
-                    <div className="p-2 bg-secondary/10 rounded-lg">
-                      <Mail className="h-5 w-5 text-secondary" />
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <Mail className="h-5 w-5 text-primary" />
                     </div>
                     <h2 className="text-2xl font-bold">Contact Info</h2>
                   </div>
@@ -234,14 +234,14 @@ export default function ContactPage() {
                       whileTap={{ scale: 0.98 }}
                     >
                       <div className="flex items-start space-x-4">
-                        <div className="p-3 bg-secondary/10 rounded-lg group-hover:bg-secondary/20 transition-colors">
-                          <Phone className="h-5 w-5 text-secondary" />
+                        <div className="p-3 bg-green-500/10 rounded-lg group-hover:bg-green-500/20 transition-colors">
+                          <Phone className="h-5 w-5 text-green-500" />
                         </div>
                         <div className="flex-1">
                           <p className="font-semibold text-sm text-muted-foreground mb-1">Phone</p>
                           <a
                             href="tel:+6476717323"
-                            className="text-base font-medium hover:text-secondary transition-colors"
+                            className="text-base font-medium hover:text-green-500 transition-colors"
                           >
                             (647) 671-7323
                           </a>
@@ -254,8 +254,8 @@ export default function ContactPage() {
                       whileHover={{ scale: 1.02, x: 5 }}
                     >
                       <div className="flex items-start space-x-4">
-                        <div className="p-3 bg-accent/10 rounded-lg group-hover:bg-accent/20 transition-colors">
-                          <MapPin className="h-5 w-5 text-accent" />
+                        <div className="p-3 bg-red-500/10 rounded-lg group-hover:bg-red-500/20 transition-colors">
+                          <MapPin className="h-5 w-5 text-red-500" />
                         </div>
                         <div className="flex-1">
                           <p className="font-semibold text-sm text-muted-foreground mb-1">Location</p>

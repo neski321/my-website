@@ -2,14 +2,7 @@ import { AboutMe } from "@/src/components/about-me"
 
 export default function AboutPage() {
   return (
-    <div 
-      className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20"
-      style={{ 
-        width: '100%', 
-        overflowX: 'hidden',
-        position: 'relative'
-      }}
-    >
+    <div className="relative min-h-screen py-16 md:py-24">
       <AboutMe />
     </div>
   )

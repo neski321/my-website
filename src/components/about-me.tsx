@@ -196,7 +196,7 @@ export function AboutMe() {
                 </Badge>
                 <Badge variant="secondary" className="px-4 py-2 text-sm">
                   <Award className="w-4 h-4 mr-2" />
-                  Seneca College Student
+                  Bachelor of Technology in Software Development
                 </Badge>
               </div>
             </motion.div>
@@ -219,7 +219,7 @@ export function AboutMe() {
             <div className="space-y-6 text-lg leading-relaxed">
               <p className="text-muted-foreground dark:text-muted-foreground/90">
                 Hello there! I'm <span className="font-semibold text-foreground dark:text-foreground">Neskines Otieno</span>, a proactive developer 
-                on an exciting journey into the dynamic world of software development at Seneca College. My path is marked 
+                on an exciting journey into the dynamic world of software development. My path is marked 
                 by a curious mind, a passion for coding, and a talent for crafting innovative solutions that make a real impact.
               </p>
               <p className="text-muted-foreground dark:text-muted-foreground/90">
