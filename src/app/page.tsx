@@ -50,8 +50,18 @@ export default function Home() {
     >
       {/* Prism Background */}
       <div 
-        className="fixed inset-0 -z-10 w-full h-full"
-        style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: -10 }}
+        className="fixed inset-0 -z-10 w-full"
+        style={{ 
+          position: 'fixed', 
+          top: 0, 
+          left: 0, 
+          right: 0, 
+          bottom: 0, 
+          zIndex: -10,
+          height: '100vh',
+          minHeight: '100vh',
+          width: '100vw'
+        }}
       >
         <Prism
           animationType="rotate"
@@ -63,6 +73,7 @@ export default function Home() {
           colorFrequency={1}
           noise={0}
           glow={0.6}
+          suspendWhenOffscreen={false}
         />
       </div>
 

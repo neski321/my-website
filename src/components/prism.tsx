@@ -240,8 +240,9 @@ const Prism: React.FC<PrismProps> = ({
     const mesh = new Mesh(gl, { geometry, program });
 
     const resize = () => {
-      const w = container.clientWidth || 1;
-      const h = container.clientHeight || 1;
+      // Use window dimensions for fixed containers to handle mobile viewport changes
+      const w = Math.max(container.clientWidth || window.innerWidth || 1, 1);
+      const h = Math.max(container.clientHeight || window.innerHeight || 1, 1);
       renderer.setSize(w, h);
       iResBuf[0] = gl.drawingBufferWidth;
       iResBuf[1] = gl.drawingBufferHeight;
@@ -251,6 +252,9 @@ const Prism: React.FC<PrismProps> = ({
     };
     const ro = new ResizeObserver(resize);
     ro.observe(container);
+    // Also listen to window resize for mobile viewport changes (address bar hide/show)
+    window.addEventListener('resize', resize);
+    window.addEventListener('orientationchange', resize);
     resize();
 
     const rotBuf = new Float32Array(9);
@@ -420,6 +424,8 @@ const Prism: React.FC<PrismProps> = ({
     return () => {
       stopRAF();
       ro.disconnect();
+      window.removeEventListener('resize', resize);
+      window.removeEventListener('orientationchange', resize);
       if (animationType === 'hover') {
         if (onPointerMove) window.removeEventListener('pointermove', onPointerMove as EventListener);
         window.removeEventListener('mouseleave', onLeave);
