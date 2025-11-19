@@ -80,35 +80,6 @@ export function ProjectsInProgressSection() {
 
   return (
     <section ref={ref} id="projects-in-progress" className="relative py-20 md:py-32 bg-gradient-to-b from-background via-muted/20 to-background overflow-hidden">
-      {/* Background Decorations */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-10 right-10 w-32 h-32 bg-orange-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-40 h-40 bg-yellow-500/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-amber-500/5 rounded-full blur-3xl" />
-        
-        {/* Floating Icons */}
-        <motion.div
-          className="absolute top-20 left-20 opacity-10"
-          animate={{ y: [0, -10, 0], rotate: [0, 5, -5, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <Clock className="h-8 w-8 text-orange-500" />
-        </motion.div>
-        <motion.div
-          className="absolute bottom-20 right-20 opacity-10"
-          animate={{ y: [0, 10, 0], rotate: [0, -5, 5, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        >
-          <Wrench className="h-6 w-6 text-yellow-500" />
-        </motion.div>
-        <motion.div
-          className="absolute top-1/3 right-10 opacity-10"
-          animate={{ y: [0, -15, 0], scale: [1, 1.1, 1] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        >
-          <Zap className="h-7 w-7 text-amber-500" />
-        </motion.div>
-      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}

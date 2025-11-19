@@ -65,35 +65,6 @@ export function ProjectsSection() {
 
   return (
     <section ref={ref} id="projects" className="relative py-20 md:py-32 bg-gradient-to-b from-muted/30 via-background to-muted/20 overflow-hidden">
-      {/* Background Decorations */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-40 h-40 bg-secondary/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-accent/5 rounded-full blur-3xl" />
-        
-        {/* Floating Icons */}
-        <motion.div
-          className="absolute top-20 right-20 opacity-10"
-          animate={{ y: [0, -10, 0], rotate: [0, 5, -5, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <Code className="h-8 w-8 text-primary" />
-        </motion.div>
-        <motion.div
-          className="absolute bottom-20 left-20 opacity-10"
-          animate={{ y: [0, 10, 0], rotate: [0, -5, 5, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        >
-          <Zap className="h-6 w-6 text-secondary" />
-        </motion.div>
-        <motion.div
-          className="absolute top-1/3 left-10 opacity-10"
-          animate={{ y: [0, -15, 0], scale: [1, 1.1, 1] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        >
-          <Sparkles className="h-7 w-7 text-accent" />
-        </motion.div>
-      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}

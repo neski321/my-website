@@ -7,6 +7,7 @@ import { Navbar } from "../components/navbar"
 import { Footer } from "../components/footer"
 import ThreadsBackground from "../components/ThreadsBackground"
 import ClickSpark from "../components/ClickSpark"
+import { ConditionalBackground } from "../components/conditional-background"
 import { Toaster } from "../components/ui/toaster"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -42,14 +43,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://neskines.dev"),
+  metadataBase: new URL("https://neskines-o.vercel.app/"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Neskines Otieno | Software Developer & Creative Technologist",
     description: "Full-stack software developer specializing in modern web applications, mobile development, and innovative digital solutions.",
-    url: "https://neskines.dev",
+    url: "https://neskines-o.vercel.app/",
     siteName: "Neskines Otieno Portfolio",
     images: [
       {
@@ -107,14 +108,16 @@ export default function RootLayout({
           
           <div className="flex min-h-screen flex-col relative">
             {/* Animated Background Elements */}
-            <div className="fixed inset-0 -z-10" style={{ overflow: 'visible', width: '100vw', left: 0, right: 0 }}>
-              <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20" />
-              <div className="absolute top-0 left-0 w-full h-full opacity-30">
-                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
-                <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-                <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-accent/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }} />
+            <ConditionalBackground>
+              <div className="fixed inset-0 -z-10" style={{ overflow: 'visible', width: '100vw', left: 0, right: 0 }}>
+                <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20" />
+                <div className="absolute top-0 left-0 w-full h-full opacity-30">
+                  <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
+                  <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+                  <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-accent/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }} />
+                </div>
               </div>
-            </div>
+            </ConditionalBackground>
             
             <Navbar />
             <main className="flex-1 relative" style={{ overflowX: 'hidden' }}>
