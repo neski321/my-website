@@ -1,8 +1,8 @@
 "use client"
 
-import { motion, easeOut, easeInOut } from "framer-motion"
+import { motion, easeOut } from "framer-motion"
 import { Button } from "../components/ui/button"
-import { ArrowRight, Github, Linkedin, Mail, Download, Sparkles, Code, Zap } from "lucide-react"
+import { ArrowRight, Github, Linkedin, Mail, Download } from "lucide-react"
 import Link from "next/link"
 import { useTheme } from "next-themes"
 import TrueFocus from "./true-focus"
@@ -47,18 +47,6 @@ const textRevealVariant = {
   },
 }
 
-const floatingIconVariants = {
-  animate: {
-    y: [0, -10, 0],
-    rotate: [0, 5, -5, 0],
-    transition: {
-      duration: 3,
-      repeat: Infinity,
-      ease: easeInOut,
-    },
-  },
-}
-
 export function HeroForeground() {
   const { resolvedTheme } = useTheme()
   const isMobile = useIsMobile()
@@ -72,27 +60,6 @@ export function HeroForeground() {
       initial="hidden"
       animate="visible"
     >
-      {/* Floating Icons */}
-      {!isMobile && (
-        <>
-          <div className="absolute -top-10 -left-10 opacity-20">
-            <motion.div variants={floatingIconVariants} animate="animate">
-              <Code className="h-8 w-8 text-primary" />
-            </motion.div>
-          </div>
-          <div className="absolute -top-5 -right-5 opacity-20">
-            <motion.div variants={floatingIconVariants} animate="animate" style={{ animationDelay: "1s" }}>
-              <Zap className="h-6 w-6 text-secondary" />
-            </motion.div>
-          </div>
-          <div className="absolute -bottom-8 left-10 opacity-20">
-            <motion.div variants={floatingIconVariants} animate="animate" style={{ animationDelay: "2s" }}>
-              <Sparkles className="h-7 w-7 text-accent" />
-            </motion.div>
-          </div>
-        </>
-      )}
-
       {/* Main Title with TrueFocus */}
       <motion.div variants={textRevealVariant} className="space-y-4">
         <motion.div
@@ -124,7 +91,7 @@ export function HeroForeground() {
         >
           <VariableProximity
             label={"Software Developer & Creative Technologist"}
-            className={"variable-proximity-demo font-roboto-flex text-3xl md:text-4xl lg:text-5xl font-semibold text-muted-foreground"}
+            className={"variable-proximity-demo font-roboto-flex text-3xl md:text-4xl lg:text-5xl font-semibold text-black dark:text-white"}
             fromFontVariationSettings="'wght' 500, 'opsz' 9"
             toFontVariationSettings="'wght' 1200, 'opsz' 40"
             containerRef={containerRef}
@@ -168,7 +135,7 @@ export function HeroForeground() {
       {/* Description */}
       <motion.p
         variants={fadeUpVariant}
-        className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+        className="text-lg md:text-xl lg:text-2xl text-black dark:text-white max-w-3xl mx-auto leading-relaxed"
       >
         Crafting innovative digital solutions with a passion for clean code, 
         user-centered design, and 

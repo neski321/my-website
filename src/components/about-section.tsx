@@ -53,9 +53,8 @@ export function AboutSection() {
               <CardContent className="p-6">
                 <h3 className="text-2xl font-bold mb-4">My Journey</h3>
                 <p className="text-muted-foreground mb-4">
-                  I'm Neskines Otieno, a dedicated student on a journey into the dynamic world of software development
-                  at Seneca College. My path is marked by a curious mind, a passion for coding, and a talent for
-                  crafting innovative solutions.
+                  I'm Neskines Otieno, a proactive developer on a journey into the dynamic world of software development. My path is marked by a curious mind, a passion for coding, and a talent for
+                  crafting innovative solutions that make a real impact.
                 </p>
                 <p className="text-muted-foreground">
                   Currently, I'm exploring opportunities for growth and excited to apply my skills in software
@@ -72,7 +71,7 @@ export function AboutSection() {
                 <h3 className="text-2xl font-bold mb-4">Beyond Coding</h3>
                 <p className="text-muted-foreground mb-4">
                   When I'm not immersed in lines of code, you'll likely find me engrossed in a captivating book. I
-                  firmly believe in the power of words to broaden perspectives and ignite creativity.
+                  firmly believe in the power of continuous learning and the thrill of solving complex problems under pressure.
                 </p>
                 <p className="text-muted-foreground">
                   I thrive in the exhilarating atmosphere of hackathons, where challenges become opportunities and

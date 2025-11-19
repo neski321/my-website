@@ -13,7 +13,7 @@ export function Footer() {
             <Link href="/" className="text-xl font-bold">
               Neskines Otieno
             </Link>
-            <p className="text-sm text-muted-foreground mt-1">Software Developer</p>
+            <p className="text-sm text-black dark:text-white mt-1">Software Developer</p>
           </div>
           <div className="flex space-x-4 mb-4 md:mb-0">
             <Button variant="ghost" size="icon" asChild>
