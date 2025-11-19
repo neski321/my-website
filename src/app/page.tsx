@@ -69,10 +69,10 @@ export default function Home() {
           height={5.5}
           baseWidth={5.5}
           scale={2.6}
-          hueShift={0}
-          colorFrequency={1}
+          hueShift={-0.54}
+          colorFrequency={0.8}
           noise={0}
-          glow={0.6}
+          glow={0.3}
           suspendWhenOffscreen={false}
         />
       </div>
