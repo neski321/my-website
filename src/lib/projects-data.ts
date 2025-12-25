@@ -89,6 +89,59 @@ export const projects: ProjectType[] = [
   },
 
   {
+    title: "NeskiApply.AI",
+    
+    description: "NeskiApply.AI is an intelligent job application automation platform that streamlines the job search process by combining AI-powered resume analysis, automated job scraping, and comprehensive application tracking. The platform features multi-source job aggregation from JSearch (RapidAPI) and Adzuna APIs, automated scraping with configurable schedules, and intelligent job-resume matching using Perplexity AI and Google Gemini APIs. The ATS (Applicant Tracking System) Optimizer analyzes job descriptions against user resumes, providing match scores, missing keywords, and actionable tailoring suggestions. The application includes a comprehensive dashboard with statistics tracking (jobs scanned, application status, interview rates), resume management with PDF/DOCX parsing and extraction, job feed filtering and search capabilities, and application status tracking (pending, applied, interview, rejected). Additional features include Discord webhook notifications for high-match job opportunities, activity logging for all system actions, automated daily job scraping with timezone-aware cron scheduling, and an admin panel for multi-user management. Built with a modern full-stack architecture featuring a responsive React frontend with real-time data updates via TanStack Query, a robust Express.js backend with RESTful APIs, PostgreSQL database with Drizzle ORM for type-safe data management, session-based authentication with Passport.js, and deployment-ready configuration for Railway. The platform features a clean, mission-control-inspired dark theme interface with visual match score indicators, interactive charts and analytics, and comprehensive mobile-responsive design for accessing job opportunities on any device.",
+    
+    link: "https://neskiapply.up.railway.app/", 
+    
+    screenshots: [
+      "/static/NeskiApply/NA1.png", 
+      "/static/NeskiApply/NA2.png", 
+      "/static/NeskiApply/NA3.png", 
+      "/static/NeskiApply/NA4.png", 
+      "/static/NeskiApply/NA5.png", 
+      "/static/NeskiApply/NA6.png", 
+      "/static/NeskiApply/NA7.png", 
+    ],
+    
+    collaboration: false,
+    
+    techStack: [
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Radix UI",
+      "TanStack Query",
+      "Wouter",
+      "Express.js",
+      "Node.js",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "Passport.js",
+      "Perplexity AI",
+      "Google Gemini AI",
+      "JSearch API",
+      "Adzuna API",
+      "RapidAPI",
+      "pdf-parse",
+      "mammoth",
+      "node-cron",
+      "Discord Webhooks",
+      "Recharts",
+      "date-fns",
+      "bcrypt",
+      "Express Session",
+      "Railway",
+      "Git",
+      "Responsive Design",
+      "RESTful API"
+    ]
+  },
+
+  {
     title: "Josh in a Dream",
     description:
       "Josh in a Dream is a third-person platformer game developed in Unreal Engine 5.5. Set in a surreal dreamscape, players control Josh as he explores a single, intricately designed level filled with enemies, traps, and environmental challenges. The main objective is to find two hidden keys placed in different sections of the map, unlock two doors, and reach the gem at the end of the level. Gameplay features include moving platforms, jump stations for enhanced traversal, combat with enemies, health pickups, and strategically placed checkpoints that allow players to respawn and continue their journey. Josh's character model was sourced from Mixamo and enhanced with custom animation blueprints for smooth movement and interaction. Built using UE5.5's Nanite and Lumen technologies, the game delivers high-quality visuals, responsive gameplay, and immersive lighting—all powered through Blueprint scripting.",
