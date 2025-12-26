@@ -38,7 +38,7 @@ export function AboutSection() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A dedicated student on a journey into the dynamic world of software development.
+          A software developer exploring the dynamic world of modern engineering and building practical, real‑world solutions.
           </p>
         </motion.div>
 
