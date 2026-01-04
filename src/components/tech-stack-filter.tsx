@@ -102,7 +102,7 @@ export function TechStackFilter({ selectedTechStacks, onTechStackChange }: TechS
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.35 }}
         className="text-center mb-8"
       >
         <div className="flex items-center justify-center space-x-3 mb-4">
@@ -124,7 +124,7 @@ export function TechStackFilter({ selectedTechStacks, onTechStackChange }: TechS
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
+        transition={{ duration: 0.35, delay: 0.05 }}
         className="flex flex-col items-center space-y-4"
       >
         {/* Selected Filters Display */}
@@ -141,11 +141,11 @@ export function TechStackFilter({ selectedTechStacks, onTechStackChange }: TechS
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.2 }}
+                transition={{ duration: 0.15 }}
               >
                 <Badge
                   variant="secondary"
-                  className={`${getSelectedTechStackColor(tech)} cursor-pointer transition-all duration-200 flex items-center space-x-1 px-3 py-1`}
+                  className={`${getSelectedTechStackColor(tech)} cursor-pointer transition-all duration-150 flex items-center space-x-1 px-3 py-1`}
                   onClick={() => toggleTechStack(tech)}
                 >
                   <span>{tech}</span>
@@ -168,13 +168,13 @@ export function TechStackFilter({ selectedTechStacks, onTechStackChange }: TechS
         <Button
           variant="outline"
           onClick={() => setIsExpanded(!isExpanded)}
-          className="flex items-center space-x-2 px-6 py-2 border-primary/20 hover:border-primary/40 transition-all duration-300"
+          className="flex items-center space-x-2 px-6 py-2 border-primary/20 hover:border-primary/40 transition-all duration-200"
         >
           <Sparkles className="h-4 w-4" />
           <span>{isExpanded ? 'Hide' : 'Show'} All Technologies</span>
           <motion.div
             animate={{ rotate: isExpanded ? 180 : 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
           >
             <Filter className="h-4 w-4" />
           </motion.div>
@@ -188,13 +188,13 @@ export function TechStackFilter({ selectedTechStacks, onTechStackChange }: TechS
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
             className="overflow-hidden"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
+              transition={{ duration: 0.25, delay: 0.05 }}
               className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 p-6 bg-gradient-to-br from-muted/30 via-background to-muted/20 rounded-2xl border border-border/50"
             >
               {allTechStacks.map((tech, index) => {
@@ -206,13 +206,13 @@ export function TechStackFilter({ selectedTechStacks, onTechStackChange }: TechS
                     key={tech}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3, delay: index * 0.02 }}
+                    transition={{ duration: 0.2, delay: index * 0.01 }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <Badge
                       variant="outline"
-                      className={`${isSelected ? getSelectedTechStackColor(tech) : getTechStackColor(tech)} cursor-pointer transition-all duration-200 flex items-center justify-between space-x-2 px-3 py-2 w-full text-sm font-medium border-2`}
+                      className={`${isSelected ? getSelectedTechStackColor(tech) : getTechStackColor(tech)} cursor-pointer transition-all duration-150 flex items-center justify-between space-x-2 px-3 py-2 w-full text-sm font-medium border-2`}
                       onClick={() => toggleTechStack(tech)}
                     >
                       <span className="truncate">{tech}</span>
@@ -231,7 +231,7 @@ export function TechStackFilter({ selectedTechStacks, onTechStackChange }: TechS
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.35, delay: 0.1 }}
           className="mt-6"
         >
           <p className="text-center text-sm text-muted-foreground mb-3">Popular technologies:</p>
@@ -244,7 +244,7 @@ export function TechStackFilter({ selectedTechStacks, onTechStackChange }: TechS
                     variant="ghost"
                     size="sm"
                     onClick={() => toggleTechStack(tech)}
-                    className="text-xs hover:bg-primary/10 transition-all duration-200"
+                    className="text-xs hover:bg-primary/10 transition-all duration-150"
                   >
                     {tech}
                   </Button>

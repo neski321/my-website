@@ -19,7 +19,7 @@ export function ContactSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.35 }}
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
@@ -33,7 +33,7 @@ export function ContactSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.35, delay: 0.05 }}
             className="lg:col-span-2"
           >
             <Card>
@@ -46,7 +46,7 @@ export function ContactSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.35, delay: 0.1 }}
           >
             <Card className="h-full">
               <CardContent className="p-6 flex flex-col justify-between h-full">

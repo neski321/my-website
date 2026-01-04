@@ -18,7 +18,7 @@ export function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
     }
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -38,7 +38,7 @@ export function Navbar() {
     animate: { 
       opacity: 1, 
       x: 0,
-      transition: { duration: 0.6, ease: easeOut }
+      transition: { duration: 0.4, ease: easeOut }
     },
     hover: { 
       scale: 1.05,
@@ -51,7 +51,7 @@ export function Navbar() {
     animate: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.4, ease: easeOut }
+      transition: { duration: 0.3, ease: easeOut }
     },
     hover: { 
       y: -2,
@@ -83,8 +83,8 @@ export function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: easeOut }}
-      className={`fixed w-full z-50 transition-all duration-500 ${
+      transition={{ duration: 0.4, ease: easeOut }}
+      className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled 
           ? "bg-background/80 backdrop-blur-xl shadow-lg border-b border-border/50" 
           : "bg-transparent"
@@ -145,11 +145,11 @@ export function Navbar() {
                   initial="initial"
                   animate="animate"
                   whileHover="hover"
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.05 }}
                 >
                   <Link
                     href={link.href}
-                    className={`relative px-4 py-2 rounded-lg text-base font-medium transition-all duration-300 group ${
+                    className={`relative px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 group ${
                       pathname === link.href 
                         ? "text-primary" 
                         : "text-muted-foreground hover:text-primary"
@@ -163,7 +163,7 @@ export function Navbar() {
                       <motion.div
                         className="absolute inset-0 bg-primary/10 rounded-lg border border-primary/20"
                         layoutId="activeTab"
-                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                        transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
                       />
                     )}
                     <motion.div
@@ -178,7 +178,7 @@ export function Navbar() {
               variants={navItemVariants}
               initial="initial"
               animate="animate"
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 0.25 }}
             >
               <ThemeToggle />
             </motion.div>
@@ -189,7 +189,7 @@ export function Navbar() {
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.15 }}
             >
               <ThemeToggle />
             </motion.div>
@@ -250,11 +250,11 @@ export function Navbar() {
                       key={link.href}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
+                      transition={{ delay: index * 0.05 }}
                     >
                       <Link
                         href={link.href}
-                        className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 ${
+                        className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
                           pathname === link.href 
                             ? "text-primary bg-primary/10 border border-primary/20" 
                             : "text-muted-foreground hover:text-primary hover:bg-primary/5"

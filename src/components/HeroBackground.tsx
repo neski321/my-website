@@ -33,7 +33,11 @@ export function HeroBackground() {
     <div className="fixed top-0 left-0 w-full h-full z-[-1] pointer-events-none">
       {/* Primary Blob */}
       <motion.div
-        style={{ y: springY1 }}
+        style={{ 
+          y: springY1,
+          willChange: "transform",
+          transform: "translateZ(0)"
+        }}
         className={`absolute top-[15%] left-[-25%] w-[500px] h-[500px] sm:w-[600px] sm:h-[600px] md:w-[700px] md:h-[700px] rounded-full filter blur-3xl 
           ${isDark
             ? "bg-gradient-to-br from-purple-600/30 via-blue-600/20 to-pink-600/30 shadow-[0_0_120px_60px_rgba(168,85,247,0.2)]"
@@ -48,7 +52,11 @@ export function HeroBackground() {
 
       {/* Secondary Blob */}
       <motion.div
-        style={{ y: springY2 }}
+        style={{ 
+          y: springY2,
+          willChange: "transform",
+          transform: "translateZ(0)"
+        }}
         className={`absolute bottom-[10%] right-[-20%] w-[450px] h-[450px] sm:w-[550px] sm:h-[550px] md:w-[650px] md:h-[650px] rounded-full filter blur-3xl 
           ${isDark
             ? "bg-gradient-to-br from-emerald-600/25 via-teal-600/20 to-cyan-600/25 shadow-[0_0_100px_50px_rgba(5,150,105,0.15)]"
@@ -63,7 +71,11 @@ export function HeroBackground() {
 
       {/* Accent Blob */}
       <motion.div
-        style={{ y: springY3 }}
+        style={{ 
+          y: springY3,
+          willChange: "transform",
+          transform: "translateZ(0)"
+        }}
         className={`absolute top-[40%] left-[60%] w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] rounded-full filter blur-3xl 
           ${isDark
             ? "bg-gradient-to-br from-orange-600/20 via-red-600/15 to-pink-600/20 shadow-[0_0_80px_40px_rgba(251,146,60,0.15)]"

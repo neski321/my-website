@@ -1,16 +1,44 @@
 "use client"
 
 import { useEffect } from "react"
-import { motion, easeOut } from "framer-motion"
+import { usePathname } from "next/navigation"
+import { motion, useScroll, useSpring } from "framer-motion"
 import { HeroSection } from "../components/hero-section"
 import { AboutSection } from "../components/about-section"
 import { ProjectsSection } from "../components/projects-section"
 import { CollaborationSection } from "../components/collaboration-section"
 import { ProjectsInProgressSection } from "../components/projects-in-progress-section"
 import { ContactSection } from "../components/contact-section"
-import Prism from "../components/prism"
+import dynamic from "next/dynamic"
+
+const Prism = dynamic(() => import("../components/prism").then(mod => ({ default: mod.default })), {
+  ssr: false,
+  loading: () => <div className="w-full h-full" />
+})
+
+function ScrollProgressIndicator() {
+  const { scrollYProgress } = useScroll()
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  })
+
+  return (
+    <motion.div
+      className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent z-50 origin-left"
+      style={{ 
+        scaleX,
+        willChange: 'transform'
+      }}
+    />
+  )
+}
 
 export default function Home() {
+  const pathname = usePathname()
+  const isHomePage = pathname === "/"
+
   useEffect(() => {
     // Smooth scroll to top when page loads
     window.scrollTo(0, 0)
@@ -21,24 +49,14 @@ export default function Home() {
     animate: { 
       opacity: 1,
       transition: {
-        duration: 0.6,
-        staggerChildren: 0.2
+        duration: 0.4,
+        staggerChildren: 0.1
       }
     },
     exit: { opacity: 0 }
   }
 
-  const sectionVariants = {
-    initial: { opacity: 0, y: 20 },
-    animate: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: easeOut
-      }
-    }
-  }
+  // Removed sectionVariants - sections handle their own animations via IntersectionObserver
 
   return (
     <motion.div
@@ -48,76 +66,69 @@ export default function Home() {
       exit="exit"
       className="relative"
     >
-      {/* Prism Background */}
-      <div 
-        className="fixed inset-0 -z-10 w-full"
-        style={{ 
-          position: 'fixed', 
-          top: 0, 
-          left: 0, 
-          right: 0, 
-          bottom: 0, 
-          zIndex: -10,
-          height: '100vh',
-          minHeight: '100vh',
-          width: '100vw'
-        }}
-      >
-        <Prism
-          animationType="rotate"
-          timeScale={0.4}
-          height={5.5}
-          baseWidth={5.5}
-          scale={2.6}
-          hueShift={-0.54}
-          colorFrequency={0.8}
-          noise={0}
-          glow={0.3}
-          suspendWhenOffscreen={false}
-        />
-      </div>
+      {/* Prism Background - Only render on home page */}
+      {isHomePage && (
+        <div 
+          className="fixed inset-0 -z-10 w-full"
+          style={{ 
+            position: 'fixed', 
+            top: 0, 
+            left: 0, 
+            right: 0, 
+            bottom: 0, 
+            zIndex: -10,
+            height: '100vh',
+            minHeight: '100vh',
+            width: '100vw'
+          }}
+        >
+          <Prism
+            animationType="rotate"
+            timeScale={0.4}
+            height={5.5}
+            baseWidth={5.5}
+            scale={2.6}
+            hueShift={-0.54}
+            colorFrequency={0.8}
+            noise={0}
+            glow={0.3}
+            suspendWhenOffscreen={true}
+          />
+        </div>
+      )}
 
       {/* Hero Section */}
-      <motion.div variants={sectionVariants}>
+      <div>
         <HeroSection />
-      </motion.div>
+      </div>
 
       {/* About Section */}
-      <motion.div variants={sectionVariants}>
+      <div>
         <AboutSection />
-      </motion.div>
+      </div>
 
       {/* Projects Section */}
-      <motion.div variants={sectionVariants}>
+      <div>
         <ProjectsSection />
-      </motion.div>
+      </div>
 
       {/* Collaboration Section */}
-      <motion.div variants={sectionVariants}>
+      <div>
         <CollaborationSection />
-      </motion.div>
+      </div>
 
       {/* Projects In Progress Section */}
-      <motion.div variants={sectionVariants}>
+      <div>
         <ProjectsInProgressSection />
-      </motion.div>
+      </div>
 
       {/* Contact Section */}
-      <motion.div variants={sectionVariants}>
+      <div>
         <ContactSection />
-      </motion.div>
+      </div>
 
       {/* Scroll Progress Indicator */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent z-50 origin-left"
-        style={{
-          scaleX: 0,
-          transformOrigin: "0%"
-        }}
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 0.1 }}
-      />
+      <ScrollProgressIndicator />
     </motion.div>
   )
 }
