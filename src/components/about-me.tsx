@@ -36,14 +36,21 @@ export function AboutMe() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.05,
       },
     },
   }
 
   const item = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
+    show: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.35,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    },
   }
 
   const skillCategories = [
@@ -132,7 +139,7 @@ export function AboutMe() {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.5 }}
         className="mb-4"
       >
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
@@ -140,7 +147,7 @@ export function AboutMe() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="flex justify-center md:justify-start md:col-span-4 relative"
           >
             <div 
@@ -181,7 +188,7 @@ export function AboutMe() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.4, delay: 0.15 }}
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent mb-4">
                 Neskines Otieno
@@ -208,7 +215,7 @@ export function AboutMe() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
+        transition={{ duration: 0.4, delay: 0.15 }}
         className="mb-16"
       >
         <Card className="overflow-hidden border-0 shadow-xl bg-gradient-to-br from-card to-card/80 dark:from-card/90 dark:to-card/70">
@@ -255,7 +262,7 @@ export function AboutMe() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {coreStrengths.map((strength, index) => (
             <motion.div key={index} variants={item}>
-              <Card className="h-full text-center p-6 hover:shadow-lg transition-all duration-300 border-0 bg-gradient-to-br from-card to-card/80 dark:from-card/90 dark:to-card/70">
+              <Card className="h-full text-center p-6 hover:shadow-lg transition-all duration-200 border-0 bg-gradient-to-br from-card to-card/80 dark:from-card/90 dark:to-card/70">
                 <CardContent className="p-0">
                   <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary dark:text-primary">
                     {strength.icon}
@@ -275,7 +282,7 @@ export function AboutMe() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
         className="mb-16"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
@@ -287,9 +294,9 @@ export function AboutMe() {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.35, delay: index * 0.05 }}
             >
-              <Card className="h-full hover:shadow-lg transition-all duration-300 border-0 bg-gradient-to-br from-card to-card/80 dark:from-card/90 dark:to-card/70">
+              <Card className="h-full hover:shadow-lg transition-all duration-200 border-0 bg-gradient-to-br from-card to-card/80 dark:from-card/90 dark:to-card/70">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
                     <div className={`w-10 h-10 rounded-lg ${category.color} dark:opacity-90 flex items-center justify-center mr-3`}>
@@ -319,7 +326,7 @@ export function AboutMe() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.6 }}
+        transition={{ duration: 0.4, delay: 0.3 }}
         className="text-center"
       >
         <Card className="border-0 shadow-xl bg-gradient-to-r from-primary/5 to-primary/10 dark:from-primary/10 dark:to-primary/15">
@@ -336,15 +343,15 @@ export function AboutMe() {
                </p>
 
               <div className="flex flex-wrap justify-center gap-6">
-                <Badge className="px-8 py-4 text-lg bg-blue-600 hover:bg-blue-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-white font-medium">
+                <Badge className="px-8 py-4 text-lg bg-blue-600 hover:bg-blue-700 border-0 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 text-white font-medium">
                   <Zap className="w-5 h-5 mr-3" />
                   Always Learning
                 </Badge>
-                <Badge className="px-8 py-4 text-lg bg-purple-600 hover:bg-purple-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-white font-medium">
+                <Badge className="px-8 py-4 text-lg bg-purple-600 hover:bg-purple-700 border-0 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 text-white font-medium">
                   <Users className="w-5 h-5 mr-3" />
                   Team Player
                 </Badge>
-                <Badge className="px-8 py-4 text-lg bg-emerald-600 hover:bg-emerald-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-white font-medium">
+                <Badge className="px-8 py-4 text-lg bg-emerald-600 hover:bg-emerald-700 border-0 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 text-white font-medium">
                   <Award className="w-5 h-5 mr-3" />
                   Quality Focused
                 </Badge>

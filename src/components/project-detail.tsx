@@ -81,6 +81,8 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                     alt={`${project.title} screenshot`}
                     fill
                     className="object-contain bg-black/5"
+                    priority
+                    quality={90}
                   />
                 </div>
                 {project.screenshots!.length > 1 && (
@@ -204,6 +206,8 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                         className={`object-cover transition-all hover:scale-105 ${
                           currentImageIndex === index ? "ring-2 ring-primary" : ""
                         }`}
+                        loading={index < 3 ? "eager" : "lazy"}
+                        quality={85}
                       />
                     </div>
                   </SwiperSlide>
@@ -247,6 +251,8 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                         alt={`${project.title} mobile screenshot ${index + 1}`}
                         fill
                         className="object-cover transition-all hover:scale-105"
+                        loading={index < 3 ? "eager" : "lazy"}
+                        quality={85}
                       />
                     </div>
                   </SwiperSlide>

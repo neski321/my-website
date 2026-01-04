@@ -10,27 +10,42 @@ import type { ProjectType } from "@/src/lib/projects-data"
 export default function ProjectsPage() {
   const [selectedTechStacks, setSelectedTechStacks] = useState<string[]>([])
 
-  // Filter projects by tech stack
-  const filterProjectsByTechStack = (projectList: ProjectType[]) => {
-    if (selectedTechStacks.length === 0) {
-      return projectList
+  // Memoize filter function
+  const filterProjectsByTechStack = useMemo(() => {
+    return (projectList: ProjectType[]) => {
+      if (selectedTechStacks.length === 0) {
+        return projectList
+      }
+      
+      return projectList.filter(project => {
+        if (!project.techStack) return false
+        return selectedTechStacks.some(tech => project.techStack!.includes(tech))
+      })
     }
-    
-    return projectList.filter(project => {
-      if (!project.techStack) return false
-      return selectedTechStacks.some(tech => project.techStack!.includes(tech))
-    })
-  }
+  }, [selectedTechStacks])
 
-  // Filter projects by category
-  const completedProjects = projects.filter(project => !project.inProgress && !project.collaboration)
-  const projectsInProgress = projects.filter(project => project.inProgress)
-  const collaborationProjects = projects.filter(project => project.collaboration)
+  // Memoize category filtering
+  const { completedProjects, projectsInProgress, collaborationProjects } = useMemo(() => {
+    return {
+      completedProjects: projects.filter(project => !project.inProgress && !project.collaboration),
+      projectsInProgress: projects.filter(project => project.inProgress),
+      collaborationProjects: projects.filter(project => project.collaboration)
+    }
+  }, [])
 
-  // Apply tech stack filters
-  const filteredCompletedProjects = filterProjectsByTechStack(completedProjects)
-  const filteredProjectsInProgress = filterProjectsByTechStack(projectsInProgress)
-  const filteredCollaborationProjects = filterProjectsByTechStack(collaborationProjects)
+  // Memoize filtered results
+  const filteredCompletedProjects = useMemo(() => 
+    filterProjectsByTechStack(completedProjects), 
+    [filterProjectsByTechStack, completedProjects]
+  )
+  const filteredProjectsInProgress = useMemo(() => 
+    filterProjectsByTechStack(projectsInProgress), 
+    [filterProjectsByTechStack, projectsInProgress]
+  )
+  const filteredCollaborationProjects = useMemo(() => 
+    filterProjectsByTechStack(collaborationProjects), 
+    [filterProjectsByTechStack, collaborationProjects]
+  )
 
   // Check if any projects match the current filters
   const hasMatchingProjects = filteredCompletedProjects.length > 0 || 
@@ -42,7 +57,7 @@ export default function ProjectsPage() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.4 }}
         className="text-center mb-12"
       >
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -66,7 +81,7 @@ export default function ProjectsPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="text-center py-16"
         >
           <div className="bg-gradient-to-r from-muted/50 to-muted/30 rounded-2xl p-8 border border-border/50">
@@ -91,7 +106,7 @@ export default function ProjectsPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          transition={{ duration: 0.4, delay: 0.05 }}
           className="mb-16"
         >
           <div className="flex items-center justify-between mb-8">
@@ -111,7 +126,7 @@ export default function ProjectsPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
           className="mb-16"
         >
           <div className="flex items-center justify-between mb-8">
@@ -133,7 +148,7 @@ export default function ProjectsPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.4, delay: 0.15 }}
           className="mb-16"
         >
           <div className="flex items-center justify-between mb-8">

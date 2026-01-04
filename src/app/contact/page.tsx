@@ -58,8 +58,8 @@ export default function ContactPage() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
       },
     },
   }
@@ -70,7 +70,7 @@ export default function ContactPage() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.4,
         ease: "easeOut",
       },
     },
@@ -88,21 +88,21 @@ export default function ContactPage() {
         <motion.div
           className="absolute top-32 right-32 opacity-10"
           animate={{ y: [0, -20, 0], rotate: [0, 10, -10, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         >
           <MessageSquare className="h-16 w-16 text-primary" />
         </motion.div>
         <motion.div
           className="absolute bottom-32 left-32 opacity-10"
           animate={{ y: [0, 20, 0], rotate: [0, -10, 10, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
         >
           <Send className="h-12 w-12 text-secondary" />
         </motion.div>
         <motion.div
           className="absolute top-1/3 left-20 opacity-10"
           animate={{ y: [0, -15, 0], scale: [1, 1.1, 1] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         >
           <Sparkles className="h-14 w-14 text-accent" />
         </motion.div>
@@ -125,12 +125,12 @@ export default function ContactPage() {
               className="flex items-center justify-center space-x-3 mb-6"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
             >
               <div className="w-16 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
               <motion.div
                 animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               >
                 <MessageSquare className="h-8 w-8 text-primary" />
               </motion.div>
@@ -156,7 +156,7 @@ export default function ContactPage() {
               variants={itemVariants}
               className="lg:col-span-2"
             >
-              <Card className="overflow-hidden bg-card/50 backdrop-blur-sm border-border/50 shadow-xl hover:shadow-2xl transition-all duration-300 relative">
+              <Card className="overflow-hidden bg-card/50 backdrop-blur-sm border-border/50 shadow-xl hover:shadow-2xl transition-all duration-200 relative">
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-50" />
                 
@@ -171,7 +171,7 @@ export default function ContactPage() {
                     backgroundPosition: ["200% 0", "-200% 0"],
                   }}
                   transition={{
-                    duration: 3,
+                    duration: 2,
                     repeat: Infinity,
                     ease: "linear",
                   }}
@@ -194,7 +194,7 @@ export default function ContactPage() {
               variants={itemVariants}
               className="space-y-6"
             >
-              <Card className="overflow-hidden bg-card/50 backdrop-blur-sm border-border/50 shadow-xl hover:shadow-2xl transition-all duration-300 relative h-full">
+              <Card className="overflow-hidden bg-card/50 backdrop-blur-sm border-border/50 shadow-xl hover:shadow-2xl transition-all duration-200 relative h-full">
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-accent/5 opacity-50" />
                 
@@ -208,7 +208,7 @@ export default function ContactPage() {
 
                   <div className="space-y-6 flex-1">
                     <motion.div
-                      className="group p-4 rounded-lg border border-border/50 bg-muted/30 hover:bg-muted/50 transition-all duration-300 cursor-pointer"
+                      className="group p-4 rounded-lg border border-border/50 bg-muted/30 hover:bg-muted/50 transition-all duration-200 cursor-pointer"
                       whileHover={{ scale: 1.02, x: 5 }}
                       whileTap={{ scale: 0.98 }}
                     >
@@ -229,7 +229,7 @@ export default function ContactPage() {
                     </motion.div>
 
                     <motion.div
-                      className="group p-4 rounded-lg border border-border/50 bg-muted/30 hover:bg-muted/50 transition-all duration-300 cursor-pointer"
+                      className="group p-4 rounded-lg border border-border/50 bg-muted/30 hover:bg-muted/50 transition-all duration-200 cursor-pointer"
                       whileHover={{ scale: 1.02, x: 5 }}
                       whileTap={{ scale: 0.98 }}
                     >
@@ -250,7 +250,7 @@ export default function ContactPage() {
                     </motion.div>
 
                     <motion.div
-                      className="group p-4 rounded-lg border border-border/50 bg-muted/30 hover:bg-muted/50 transition-all duration-300"
+                      className="group p-4 rounded-lg border border-border/50 bg-muted/30 hover:bg-muted/50 transition-all duration-200"
                       whileHover={{ scale: 1.02, x: 5 }}
                     >
                       <div className="flex items-start space-x-4">
@@ -271,7 +271,7 @@ export default function ContactPage() {
                         Email Template
                       </Label>
                       <Select value={selectedTemplate} onValueChange={setSelectedTemplate}>
-                        <SelectTrigger className="w-full transition-all duration-300 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 bg-background/50 border-border/50 hover:border-primary/30">
+                        <SelectTrigger className="w-full transition-all duration-200 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 bg-background/50 border-border/50 hover:border-primary/30">
                           <SelectValue placeholder="Select email template" />
                         </SelectTrigger>
                         <SelectContent>

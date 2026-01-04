@@ -16,8 +16,8 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
     },
   },
 }
@@ -41,7 +41,7 @@ const textRevealVariant = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.5,
       ease: easeOut,
     },
   },
@@ -66,7 +66,7 @@ export function HeroForeground() {
           className="flex justify-center"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: easeOut }}
+          transition={{ duration: 0.6, ease: easeOut }}
         >
           <TrueFocus 
             sentence="NESKINES OTIENO"
@@ -105,7 +105,7 @@ export function HeroForeground() {
           className="text-2xl md:text-3xl lg:text-4xl font-semibold text-muted-foreground"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
         >
           <DecryptedText
             text="Software Developer & Creative Technologist"
@@ -124,7 +124,7 @@ export function HeroForeground() {
           className="flex items-center justify-center space-x-2 text-primary"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.25 }}
         >
           <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
           <span className="text-sm font-medium">Full-Stack Development</span>
@@ -194,7 +194,7 @@ export function HeroForeground() {
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 + index * 0.1 }}
+            transition={{ delay: 0.4 + index * 0.05 }}
           >
             <Button variant="ghost" size="icon" asChild className="group">
               <a

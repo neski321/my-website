@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, easeOut } from "framer-motion"
+import { motion } from "framer-motion"
 import { Card, CardContent } from "../components/ui/card"
 import type { ProjectType } from "../lib/projects-data"
 import Link from "next/link"
@@ -13,52 +13,23 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
-  }
-
   const cardVariants = {
-    initial: { opacity: 0, y: 30, scale: 0.95 },
-    animate: { 
-      opacity: 1, 
-      y: 0, 
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: easeOut,
-        delay: index * 0.1
-      }
-    },
     hover: {
       y: -8,
       scale: 1.02,
       transition: {
-        duration: 0.3,
-        ease: easeOut
+        duration: 0.2,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   }
 
   const imageVariants = {
-    initial: { scale: 1 },
     hover: { 
-      scale: 1.1,
+      scale: 1.05,
       transition: {
-        duration: 0.4,
-        ease: easeOut
-      }
-    }
-  }
-
-  const contentVariants = {
-    initial: { opacity: 0, y: 20 },
-    animate: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.5,
-        delay: 0.2 + index * 0.1
+        duration: 0.25,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   }
@@ -66,13 +37,12 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <motion.div
       variants={cardVariants}
-      initial="initial"
-      animate="animate"
       whileHover="hover"
       className="group"
+      style={{ willChange: "transform" }}
     >
       <Link href={`/projects/${index}`}>
-        <Card className="overflow-hidden project-card h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all duration-300 relative">
+        <Card className="overflow-hidden project-card h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all duration-200 relative">
           {/* Gradient Overlay */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -84,7 +54,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           <div className="relative h-48 w-full overflow-hidden">
             <motion.div
               variants={imageVariants}
-              initial="initial"
               whileHover="hover"
               className="relative h-full w-full"
             >
@@ -100,13 +69,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 fill
                 className="object-cover transition-transform duration-300"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                priority={project.title === "DesignUrWeb"}
-                onError={(e) => {
-                  console.error(`Failed to load image for ${project.title}:`, e);
-                }}
-                onLoad={() => {
-                  console.log(`Successfully loaded image for ${project.title}`);
-                }}
+                priority={index < 3}
+                loading={index < 3 ? "eager" : "lazy"}
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
               />
               
               {/* Image Overlay */}
@@ -118,7 +84,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               
               {/* Floating Action Button */}
               <motion.div
-                className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300"
+                className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-200"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileHover={{ opacity: 1, scale: 1 }}
               >
@@ -131,11 +97,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
           {/* Content */}
           <CardContent className="p-6 relative z-10">
-            <motion.div
-              variants={contentVariants}
-              initial="initial"
-              animate="animate"
-            >
+            <div>
               {/* Title */}
               <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
                 {project.title}
@@ -168,14 +130,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 </div>
                 
                 <motion.span 
-                  className="text-sm text-primary font-medium flex items-center space-x-1 group-hover:space-x-2 transition-all duration-300"
+                  className="text-sm text-primary font-medium flex items-center space-x-1 group-hover:space-x-2 transition-all duration-200"
                   whileHover={{ x: 2 }}
                 >
                   <span>View Details</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </motion.span>
               </div>
-            </motion.div>
+            </div>
           </CardContent>
 
           {/* Shimmer Effect */}

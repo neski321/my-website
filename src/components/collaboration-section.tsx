@@ -19,8 +19,8 @@ export function CollaborationSection() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
       },
     },
   }
@@ -31,7 +31,7 @@ export function CollaborationSection() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
+        duration: 0.5,
         ease: easeOut,
       },
     },
@@ -43,7 +43,7 @@ export function CollaborationSection() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.4,
         ease: easeOut,
       },
     },
@@ -56,7 +56,7 @@ export function CollaborationSection() {
       y: 0,
       transition: {
         duration: 0.6,
-        delay: 0.2,
+        delay: 0.1,
         ease: easeOut,
       },
     },
@@ -68,8 +68,8 @@ export function CollaborationSection() {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.5,
-        delay: 0.8,
+        duration: 0.35,
+        delay: 0.5,
         ease: easeOut,
       },
     },
@@ -119,7 +119,7 @@ export function CollaborationSection() {
               className="flex justify-center items-center space-x-8 mt-8 pt-8 border-t border-border/50"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
+              transition={{ delay: 0.25, duration: 0.4 }}
             >
               {[
                 { label: "Collaborations", value: collaborationProjects.length, icon: Users },
@@ -131,7 +131,7 @@ export function CollaborationSection() {
                   className="text-center"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                  transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
+                  transition={{ delay: 0.35 + index * 0.06, duration: 0.35 }}
                 >
                   <div className="flex items-center justify-center space-x-2 mb-2">
                     <stat.icon className="h-5 w-5 text-green-500" />
@@ -161,17 +161,23 @@ export function CollaborationSection() {
             // Find the actual index of this project in the main projects array
             const actualProjectIndex = projects.findIndex(p => p.title === project.title)
             
+            const item = {
+              hidden: { opacity: 0, y: 20, scale: 0.96 },
+              show: { 
+                opacity: 1, 
+                y: 0,
+                scale: 1,
+                transition: {
+                  duration: 0.35,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                }
+              }
+            }
+            
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ 
-                  delay: 0.3 + index * 0.2, 
-                  duration: 0.6,
-                  ease: easeOut
-                }}
-                whileHover={{ y: -5 }}
+                variants={item}
                 className={collaborationProjects.length < 3 ? 'w-full max-w-sm lg:max-w-md' : ''}
               >
                 <div className="relative">

@@ -16,7 +16,7 @@ export function AboutSection() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
   }
@@ -26,13 +26,18 @@ export function AboutSection() {
     show: { opacity: 1, y: 0 },
   }
 
+  const headerItem = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 },
+  }
+
   return (
     <section ref={ref} id="about" className="py-16 md:py-24">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
+          variants={headerItem}
+          initial="hidden"
+          animate={inView ? "show" : "hidden"}
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>

@@ -33,6 +33,7 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const sparksRef = useRef<Spark[]>([]);
   const startTimeRef = useRef<number | null>(null);
+  const animationIdRef = useRef<number | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -89,13 +90,18 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let animationId: number;
-
     const draw = (timestamp: number) => {
       if (!startTimeRef.current) {
         startTimeRef.current = timestamp;
       }
-      ctx?.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Check if there are any active sparks - pause if none
+      if (sparksRef.current.length === 0) {
+        animationIdRef.current = null;
+        return;
+      }
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       sparksRef.current = sparksRef.current.filter((spark: Spark) => {
         const elapsed = timestamp - spark.startTime;
@@ -124,13 +130,28 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
         return true;
       });
 
-      animationId = requestAnimationFrame(draw);
+      // Only continue animation if there are sparks
+      if (sparksRef.current.length > 0) {
+        animationIdRef.current = requestAnimationFrame(draw);
+      } else {
+        animationIdRef.current = null;
+      }
     };
 
-    animationId = requestAnimationFrame(draw);
+    const startAnimation = () => {
+      if (animationIdRef.current === null && sparksRef.current.length > 0) {
+        animationIdRef.current = requestAnimationFrame(draw);
+      }
+    };
+
+    // Store startAnimation function to be called when sparks are added
+    (canvasRef.current as any).__startSparkAnimation = startAnimation;
 
     return () => {
-      cancelAnimationFrame(animationId);
+      if (animationIdRef.current !== null) {
+        cancelAnimationFrame(animationIdRef.current);
+      }
+      animationIdRef.current = null;
     };
   }, [sparkColor, sparkSize, sparkRadius, sparkCount, duration, easeFunc, extraScale]);
 
@@ -150,6 +171,12 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
     }));
 
     sparksRef.current.push(...newSparks);
+    
+    // Restart animation if it was paused
+    const startAnimation = (canvas as any).__startSparkAnimation;
+    if (startAnimation) {
+      startAnimation();
+    }
   };
 
   return (

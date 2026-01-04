@@ -249,7 +249,14 @@ const Threads: React.FC<ThreadsProps> = ({
       container.addEventListener("mouseleave", handleMouseLeave);
     }
 
+    let isVisible = true;
+    
     function update(t: number) {
+      if (!isVisible) {
+        animationFrameId.current = null;
+        return;
+      }
+      
       if (enableMouseInteraction) {
         const smoothing = 0.05;
         currentMouse[0] += smoothing * (targetMouse[0] - currentMouse[0]);
@@ -265,11 +272,40 @@ const Threads: React.FC<ThreadsProps> = ({
       renderer.render({ scene: mesh });
       animationFrameId.current = requestAnimationFrame(update);
     }
-    animationFrameId.current = requestAnimationFrame(update);
+    
+    const startAnimation = () => {
+      if (!animationFrameId.current && isVisible) {
+        animationFrameId.current = requestAnimationFrame(update);
+      }
+    };
+    
+    const stopAnimation = () => {
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+        animationFrameId.current = null;
+      }
+    };
+    
+    // IntersectionObserver to pause when off-screen
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.some((e) => e.isIntersecting);
+        isVisible = visible;
+        if (visible) {
+          startAnimation();
+        } else {
+          stopAnimation();
+        }
+      },
+      { threshold: 0 }
+    );
+    
+    observer.observe(container);
+    startAnimation();
 
     return () => {
-      if (animationFrameId.current)
-        cancelAnimationFrame(animationFrameId.current);
+      observer.disconnect();
+      stopAnimation();
       window.removeEventListener("resize", resize);
 
       if (enableMouseInteraction) {
