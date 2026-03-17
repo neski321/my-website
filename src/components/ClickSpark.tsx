@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, useCallback } from "react";
+import { useIsMobile } from "../hooks/use-mobile";
 
 interface ClickSparkProps {
   sparkColor?: string;
@@ -34,6 +35,7 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
   const sparksRef = useRef<Spark[]>([]);
   const startTimeRef = useRef<number | null>(null);
   const animationIdRef = useRef<number | null>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -178,6 +180,10 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
       startAnimation();
     }
   };
+
+  if (isMobile) {
+    return <>{children}</>;
+  }
 
   return (
     <div

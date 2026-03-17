@@ -202,6 +202,13 @@
   animation: float 6s ease-in-out infinite;
 }
 
+@media (max-width: 767px) {
+  .animate-float {
+    display: none !important;
+    animation: none !important;
+  }
+}
+
 /* Pulse Animation */
 @keyframes pulse {
   0%, 100% { opacity: 1; }
