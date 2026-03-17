@@ -6,15 +6,15 @@ import { Card, CardContent } from "../components/ui/card"
 import { Badge } from "../components/ui/badge"
 import Image from "next/image"
 import Orb from "./orb"
-import { 
-  BookOpen, 
-  Code, 
-  Coffee, 
-  Database, 
-  Cloud, 
-  Shield, 
-  Brain, 
-  Globe, 
+import {
+  BookOpen,
+  Code,
+  Coffee,
+  Database,
+  Cloud,
+  Shield,
+  Brain,
+  Globe,
   Zap,
   Users,
   Award,
@@ -45,8 +45,8 @@ export function AboutMe() {
 
   const item = {
     hidden: { opacity: 0, y: 20 },
-    show: { 
-      opacity: 1, 
+    show: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.35,
@@ -152,7 +152,7 @@ export function AboutMe() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex justify-center md:justify-start md:col-span-4 relative"
           >
-            <div 
+            <div
               ref={imageContainerRef}
               style={{ width: '100%', maxWidth: '400px', height: '400px', position: 'relative', cursor: 'pointer' }}
             >
@@ -209,7 +209,7 @@ export function AboutMe() {
                 </Badge>
                 <Badge variant="secondary" className="px-4 py-2 text-sm">
                   <Award className="w-4 h-4 mr-2" />
-                  Bachelor of Technology in Software Development
+                  Honours Bachelor of Technology in Software Development
                 </Badge>
               </div>
             </motion.div>
@@ -231,23 +231,23 @@ export function AboutMe() {
             </h2>
             <div className="space-y-6 text-lg leading-relaxed">
               <p className="text-muted-foreground dark:text-muted-foreground/90">
-                Hello there! I'm <span className="font-semibold text-foreground dark:text-foreground">Neskines Otieno</span>, a proactive developer 
-                on an exciting journey into the dynamic world of software development. My path is marked 
+                Hello there! I'm <span className="font-semibold text-foreground dark:text-foreground">Neskines Otieno</span>, a proactive developer
+                on an exciting journey into the dynamic world of software development. My path is marked
                 by a curious mind, a passion for coding, and a talent for crafting innovative solutions that make a real impact.
               </p>
               <p className="text-muted-foreground dark:text-muted-foreground/90">
-                Currently, I'm exploring opportunities for growth and excited to apply my comprehensive skill set in software 
-                development. I'm driven to contribute to innovative projects and collaborate with teams that push the boundaries 
+                Currently, I'm exploring opportunities for growth and excited to apply my comprehensive skill set in software
+                development. I'm driven to contribute to innovative projects and collaborate with teams that push the boundaries
                 of technology while maintaining the highest standards of code quality and user experience.
               </p>
               <p className="text-muted-foreground dark:text-muted-foreground/90">
-                When I'm not immersed in lines of code, you'll likely find me engrossed in a captivating book or participating 
-                in hackathons. I firmly believe in the power of continuous learning and the thrill of solving complex problems 
+                When I'm not immersed in lines of code, you'll likely find me engrossed in a captivating book or participating
+                in hackathons. I firmly believe in the power of continuous learning and the thrill of solving complex problems
                 under pressure. The adrenaline rush of hackathons fuels my enthusiasm for coding and collaboration.
               </p>
               <p className="text-muted-foreground dark:text-muted-foreground/90">
-                Being socially active isn't just a checkbox for me, it's a genuine commitment to connecting with like-minded 
-                individuals, learning from diverse perspectives, and building meaningful professional relationships. Let's 
+                Being socially active isn't just a checkbox for me, it's a genuine commitment to connecting with like-minded
+                individuals, learning from diverse perspectives, and building meaningful professional relationships. Let's
                 exchange ideas and inspire each other to create amazing things!
               </p>
             </div>
@@ -312,9 +312,9 @@ export function AboutMe() {
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill, skillIndex) => (
-                      <Badge 
-                        key={skillIndex} 
-                        variant="secondary" 
+                      <Badge
+                        key={skillIndex}
+                        variant="secondary"
                         className={`text-xs ${category.color} dark:opacity-90 hover:scale-105 transition-transform`}
                       >
                         {skill}
@@ -336,33 +336,33 @@ export function AboutMe() {
         className="text-center"
       >
         <Card className="border-0 shadow-xl bg-gradient-to-r from-primary/5 to-primary/10 dark:from-primary/10 dark:to-primary/15">
-         <CardContent className="p-12 md:p-16 relative">
-               <div className="flex items-center justify-center mb-8">
-                 <Sparkles className="w-8 h-8 text-purple-500 mr-4" />
-                 <h2 className="text-3xl md:text-4xl font-bold text-foreground dark:text-foreground">Ready to Build Something Amazing?</h2>
-                 <Sparkles className="w-8 h-8 text-blue-500 ml-4" />
-               </div>
+          <CardContent className="p-12 md:p-16 relative">
+            <div className="flex items-center justify-center mb-8">
+              <Sparkles className="w-8 h-8 text-purple-500 mr-4" />
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground dark:text-foreground">Ready to Build Something Amazing?</h2>
+              <Sparkles className="w-8 h-8 text-blue-500 ml-4" />
+            </div>
 
-               <p className="text-xl text-muted-foreground dark:text-muted-foreground/90 mb-10 max-w-3xl mx-auto leading-relaxed">
-                 Whether I'm unraveling the mysteries of code or brainstorming at a hackathon, I find joy in the process
-                 of learning and creating. Let's connect and explore the endless possibilities of technology together!
-               </p>
+            <p className="text-xl text-muted-foreground dark:text-muted-foreground/90 mb-10 max-w-3xl mx-auto leading-relaxed">
+              Whether I'm unraveling the mysteries of code or brainstorming at a hackathon, I find joy in the process
+              of learning and creating. Let's connect and explore the endless possibilities of technology together!
+            </p>
 
-              <div className="flex flex-wrap justify-center gap-6">
-                <Badge className="px-8 py-4 text-lg bg-blue-600 hover:bg-blue-700 border-0 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 text-white font-medium">
-                  <Zap className="w-5 h-5 mr-3" />
-                  Always Learning
-                </Badge>
-                <Badge className="px-8 py-4 text-lg bg-purple-600 hover:bg-purple-700 border-0 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 text-white font-medium">
-                  <Users className="w-5 h-5 mr-3" />
-                  Team Player
-                </Badge>
-                <Badge className="px-8 py-4 text-lg bg-emerald-600 hover:bg-emerald-700 border-0 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 text-white font-medium">
-                  <Award className="w-5 h-5 mr-3" />
-                  Quality Focused
-                </Badge>
-              </div>
-            </CardContent>
+            <div className="flex flex-wrap justify-center gap-6">
+              <Badge className="px-8 py-4 text-lg bg-blue-600 hover:bg-blue-700 border-0 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 text-white font-medium">
+                <Zap className="w-5 h-5 mr-3" />
+                Always Learning
+              </Badge>
+              <Badge className="px-8 py-4 text-lg bg-purple-600 hover:bg-purple-700 border-0 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 text-white font-medium">
+                <Users className="w-5 h-5 mr-3" />
+                Team Player
+              </Badge>
+              <Badge className="px-8 py-4 text-lg bg-emerald-600 hover:bg-emerald-700 border-0 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 text-white font-medium">
+                <Award className="w-5 h-5 mr-3" />
+                Quality Focused
+              </Badge>
+            </div>
+          </CardContent>
         </Card>
       </motion.div>
     </div>
