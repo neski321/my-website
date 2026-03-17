@@ -27,9 +27,11 @@ import {
   Languages,
   Sparkles
 } from "lucide-react"
+import { useIsMobile } from "../hooks/use-mobile"
 
 export function AboutMe() {
   const imageContainerRef = useRef<HTMLDivElement>(null)
+  const isMobile = useIsMobile()
 
   const container = {
     hidden: { opacity: 0 },
@@ -156,20 +158,24 @@ export function AboutMe() {
             >
               {/* Orb Background */}
               <div style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, pointerEvents: 'none' }}>
-                <Orb
-                  hoverIntensity={2}
-                  rotateOnHover={true}
-                  hue={0}
-                  forceHoverState={false}
-                  radius={0.8}
-                  containerRef={imageContainerRef}
-                />
+                {!isMobile ? (
+                  <Orb
+                    hoverIntensity={2}
+                    rotateOnHover={true}
+                    hue={0}
+                    forceHoverState={false}
+                    radius={0.8}
+                    containerRef={imageContainerRef}
+                  />
+                ) : (
+                  <div className="w-full h-full rounded-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.15)_0%,transparent_70%)] animate-pulse-slow"></div>
+                )}
               </div>
               {/* Circular Image - Centered within Orb */}
               <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 10, width: '70%', maxWidth: '280px', aspectRatio: '1', pointerEvents: 'none' }}>
                 <div className="relative w-full h-full rounded-full overflow-hidden shadow-2xl border-4 border-primary/20 dark:border-primary/30 bg-gradient-to-br from-primary/10 to-primary/5">
                   <Image
-                    src="/static/About/myimage.jpg"
+                    src="/static/About/myimage.webp"
                     alt="Neskines Otieno"
                     fill
                     className="object-cover object-top"

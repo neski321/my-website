@@ -1,8 +1,10 @@
 import { forwardRef, useMemo, useRef, useEffect, MutableRefObject, CSSProperties, HTMLAttributes } from "react";
 import { motion } from "framer-motion";
+import { useIsMobile } from "../hooks/use-mobile";
 
-function useAnimationFrame(callback: () => void) {
+function useAnimationFrame(callback: () => void, isMobile: boolean) {
     useEffect(() => {
+        if (isMobile) return;
         let frameId: number;
         const loop = () => {
             callback();
@@ -13,10 +15,11 @@ function useAnimationFrame(callback: () => void) {
     }, [callback]);
 }
 
-function useMousePositionRef(containerRef: MutableRefObject<HTMLElement | null>) {
+function useMousePositionRef(containerRef: MutableRefObject<HTMLElement | null>, isMobile: boolean) {
     const positionRef = useRef({ x: 0, y: 0 });
 
     useEffect(() => {
+        if (isMobile) return;
         const updatePosition = (x: number, y: number) => {
             if (containerRef?.current) {
                 const rect = containerRef.current.getBoundingClientRect();
@@ -71,7 +74,8 @@ const VariableProximity = forwardRef<HTMLSpanElement, VariableProximityProps>((p
 
     const letterRefs = useRef<(HTMLSpanElement | null)[]>([]);
     const interpolatedSettingsRef = useRef<string[]>([]);
-    const mousePositionRef = useMousePositionRef(containerRef);
+    const isMobile = useIsMobile();
+    const mousePositionRef = useMousePositionRef(containerRef, isMobile);
     const lastPositionRef = useRef<{ x: number | null; y: number | null }>({ x: null, y: null });
 
     const parsedSettings = useMemo(() => {
@@ -147,7 +151,7 @@ const VariableProximity = forwardRef<HTMLSpanElement, VariableProximityProps>((p
             interpolatedSettingsRef.current[index] = newSettings;
             letterRef.style.fontVariationSettings = newSettings;
         });
-    });
+    }, isMobile);
 
     const words = label.split(" ");
     let letterIndex = 0;
