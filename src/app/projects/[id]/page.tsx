@@ -15,7 +15,11 @@ export default async function ProjectPage({ params }: { params: { id: string } }
 
   return (
     <div className="container mx-auto px-4 py-16">
-      <ProjectDetail project={project} />
+      <ProjectDetail 
+        project={project} 
+        projectIndex={projectIndex}
+        totalProjects={projects.length}
+      />
     </div>
   )
 }

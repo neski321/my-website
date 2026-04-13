@@ -447,3 +447,55 @@
     transition-duration: 0.01ms !important;
   }
 }
+/* Deep Dive UI Styles */
+.sticky-section-nav {
+  @apply sticky top-16 z-30 bg-background/80 backdrop-blur-md border-b border-border/50 py-2 mb-8;
+}
+
+.section-anchor {
+  scroll-margin-top: 100px;
+}
+
+.feature-card {
+  @apply p-6 rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm hover:border-primary/30 transition-all duration-300;
+}
+
+.architecture-layer {
+  @apply p-5 rounded-xl border border-border/50 bg-muted/20 relative overflow-hidden mb-4;
+}
+
+.architecture-layer::before {
+  content: '';
+  @apply absolute left-0 top-0 bottom-0 w-1 bg-primary/40;
+}
+
+.metric-card {
+  @apply p-4 rounded-xl border border-border/50 bg-card/50 flex flex-col items-center text-center hover:scale-105 transition-transform duration-200;
+}
+
+.challenge-card {
+  @apply rounded-xl border border-border/50 overflow-hidden mb-4;
+}
+
+.challenge-header {
+  @apply p-4 bg-muted/30 font-semibold flex items-start gap-3;
+}
+
+.solution-body {
+  @apply p-4 bg-primary/5 border-t border-border/30 italic text-muted-foreground;
+}
+
+.nav-link-active {
+  @apply text-primary font-bold relative;
+}
+
+.nav-link-active::after {
+  content: '';
+  @apply absolute -bottom-2 left-0 right-0 h-0.5 bg-primary rounded-full;
+}
+
+@media (max-width: 767px) {
+  .sticky-section-nav {
+    @apply top-14 py-1;
+  }
+}
